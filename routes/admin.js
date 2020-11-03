@@ -1,44 +1,44 @@
 const express = require('express')
 const router = express.Router()
-const pool = require('../database')
-const bcrypt = require('bcryptjs')
-
-// Admin Login Route
-router.get('/login', (req,res) => {
+const passport = require('passport')
+ 
+// Login Route
+router.get('/login', isNotAuthorized, (req,res) => {
     res.render('admin/login', {message: ''})
 })
 
-// Admin Login Process
-router.post('/login',  async (req,res) => {
-   try {
-       const { username, password } = req.body
-       pool.query('SELECT * FROM Admin_Profile WHERE Username = ?', [username],  async (error, results) => {
-           console.log(results.length)
-           if( results.length <=0 ){
-               console.log("Wrong user or password")
-               res.status(401).render('admin/login', {
-                   message: 'Username or password is incorrect'
-               })
-               
-           } else if ( !(await bcrypt.compare(password, results[0].Password))) {
-               res.status(401).render('admin/login', {
-                   message: 'Username or password is incorrect'
-               })
-           } else {
-               res.status(200).redirect('home')
-           }
+// Login Process
+router.post('/login', isNotAuthorized,  passport.authenticate('local', {
+    successRedirect: '/admin/home',             // if credentials are valid, redirect to home page
+    failureRedirect: '/admin/login',            // if credentials are invalid, redirect to login again
+    failureFlash: true                          // flash an error message using the message given by the strategy's verify callback
+}))
 
-       })
-       
-   } catch (error) {
-       console.log(error)
-   }
+// Home Route 
+router.get('/home', isAuthorized, (req,res) => {
+    res.render('admin/home', {username: req.user.username})
 })
 
-/* Admin Home Route */
-router.get('/home', (req,res) => {
-    res.render('admin/home')
+// Logout Process
+router.delete('/home/logout', (req, res) => {
+    req.logOut()
+    res.redirect('/admin/login')
 })
 
+// To check if the user is authorized to access the route
+function isAuthorized(req, res, next) {
+    if (req.isAuthenticated()) {
+      return next()
+    }
+    res.redirect('/admin/login')
+}
+
+// To check if the user does not need to go back to login route
+function isNotAuthorized(req, res, next) {
+    if (req.isAuthenticated()) {
+        return res.redirect('/admin/home')
+    }
+    next()
+}
 
 module.exports = router
