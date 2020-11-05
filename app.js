@@ -6,7 +6,7 @@ const passport = require('passport')
 const session = require('express-session')
 const flash = require('express-flash')
 const methodOverride = require('method-override')
-
+const expressLayouts = require('express-ejs-layouts')
 const app = express()
 
 // Call for Passport Configuration
@@ -16,6 +16,8 @@ initializePassport(passport);
 // Load View Engine 
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
+app.set('layout', 'layouts/layout')
+app.use(expressLayouts)
 
 app.use(express.static(path.join(__dirname, './public')))       // Set public directory for storing css & images
 app.use(express.urlencoded({ extended: false}))                 // Parse URL-encoded bodies (as sent by MTML) To access data in forms 

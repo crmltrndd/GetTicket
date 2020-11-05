@@ -1,49 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GetTicket Admin Portal </title>
-    <link rel="stylesheet" href="/style.css">
-    <script src="https://use.fontawesome.com/9ed803984b.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-</head>
-<body>
-    <div class="admin">
-        <img src="/images/admin_avatar.jpg" class="avatar">
-        <h1 class="text">ADMIN LOGIN</h1>
-        <form action="/admin/login" method="POST">
-            <input type="text" id="username" name="username" placeholder="Username">
-            <input type="password" id="password" name="password" placeholder="Password">
-            
-            <% if (messages.error) { %>
-                <br><%= messages.error %><br> 
-            <% } %>
+<div class="admin">
+    <img src="/images/admin_avatar.jpg" class="avatar">
+    <h1 class="text">ADMIN LOGIN</h1>
+    <form action="/admin/login" method="POST">
+        <input type="text" id="username" name="username" placeholder="Username">
+        <input type="password" id="password" name="password" placeholder="Password">
 
-            <button type="submit" id="login" disabled="disabled" class="btn1">LOGIN</button>
-        </form>
-        <div class="bottom-text">            
-            <a href="#">Forget Password?</a>
-        </div>
+        <% if (messages.error) { %>
+            <br><%= messages.error %><br>
+        <% } %>
+
+        <button type="submit" id="login" disabled="disabled" class="btn">LOG IN</button>
+    </form>
+    <div class="bottom-text">
+        <a href="#">Forget Password?</a>
     </div>
-    <script>
-        // Disable login button unless all fields are filled
-        $(function() {
-            $('form > input').keyup(function() {
-                var empty = false
-                $('form > input').each(function() {
-                    if ($(this).val() == '') {
-                        empty = true
-                    }
-                })
-
-                if (empty) {
-                    $('#login').attr('disabled', 'disabled')
-                } else {
-                    $('#login').removeAttr('disabled')
+</div>
+<script>
+    // Disable login button unless all fields are filled
+    $(function () {
+        $('form > input').keyup(function () {
+            var empty = false
+            $('form > input').each(function () {
+                if ($(this).val() == '') {
+                    empty = true
                 }
-            });
-        })
-    </script>
-</body>
-</html>
+            })
+            if (empty) {
+                $('#login').attr('disabled', 'disabled')
+                $('#login').removeClass('hover')
+                $('#login').removeClass('btndesign')
+                $('#login').addClass('btn')
+            } else {
+                $('#login').removeAttr('disabled')
+                $('#login').addClass('hover')
+                $('#login').addClass('btndesign')
+                $('#login').removeClass('btn')
+            }
+        });
+    })
+</script>

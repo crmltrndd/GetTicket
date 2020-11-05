@@ -1,11 +1,7 @@
-Home Admin
-I'm <%= username %> 
-<form action="/admin/home/logout?_method=DELETE" method="POST">
-  <button type="submit">Logout</button>
-</form>
-<!--
-  <ul class="nav navbar-nav navbar-right">
-    <li><a href="/admin/home/logout">Logout</a></li>
-  </ul>
--->
-
+<%- include ('./partials/header.ejs', {username: username, role: role}) %>
+<div class="container">
+  <div class="jumbotron">
+    <h2> Welcome, <%=username%>.</h2>
+    <p class="lead">What would you like today?</p>
+  </div>
+</div>

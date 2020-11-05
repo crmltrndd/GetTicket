@@ -12,8 +12,11 @@ function initialize(passport){
                 if (results.length <=0 ){
                     return done(null, false, {message: 'Invalid username or password'})
                 }
+                else if (results[0].Status == 0) {
+                    return done(null, false, {message: 'Invalid username or password'})
+                }
                 else if (await bcrypt.compare(password, results[0].Password)) {
-                    const user = { id: results[0].ID, username: results[0].Username}
+                    const user = { id: results[0].ID, username: results[0].Username, role: results[0].Role, status: results[0].Status}
                     return done(null, user)
                 } 
                 else {
@@ -37,7 +40,7 @@ function initialize(passport){
     passport.deserializeUser((id, done) => {
         pool.query('SELECT * FROM Admin_Profile WHERE ID = ?', [id], (error, results) => {
             if (error) throw error
-            const user = { id: results[0].ID, username: results[0].Username}
+            const user = { id: results[0].ID, username: results[0].Username, role: results[0].Role}
             return done(null, user)
         })
     })

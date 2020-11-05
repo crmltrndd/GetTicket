@@ -1,7 +1,7 @@
 body{
     margin: 0;
     padding: 0;
-    background-image: url(./images/cinema_background.jpg);
+    background-image: url(./images/admin_login_background.jpg);
     -webkit-background-size: cover;
     background-size: cover;
     font-family: Arial, Helvetica, sans-serif;
@@ -56,26 +56,50 @@ h1{
     opacity: 1;
     color: white;
 }
-.admin button[class=btn1]{
+.admin .btn{
     margin-top: 25px;
-    border: 1px solid rgb(223, 87, 69);
-    border-radius: 6px;
+    border: 1px solid rgb(228, 114, 99);
+    border-radius: 8px;
     outline: none;
     width: 101.50%;
     height: 40px;
-    background: rgb(223, 87, 69);
-    color: white;
+    background: rgb(228, 114, 99);
+    color: rgb(182, 181, 180);
     font-size: 16px;
     font-weight: bold;
-    transition: 0.8s;
+    transition: 0.5s;
 }
-.admin button[class=btn1]:hover{
-    color: rgb(207, 89, 68);
+button[disabled=disabled], button:disabled{
+    margin-top: 25px;
+    border: 1px solid rgb(228, 114, 99);
+    border-radius: 8px;
+    outline: none;
+    width: 101.50%;
+    height: 40px;
+    background: rgb(228, 114, 99);
+    color: rgb(182, 181, 180);
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.5s;
 }
-.admin button[class=btn1]:hover{
-   background: transparent;
+.btndesign{
+    color: white;
+    background:rgb(207, 59, 33); 
+    border: 1px solid rgb(207, 59, 33);
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.5s;
+    margin-top: 25px;
+    border-radius: 8px;
+    outline: none;
+    width: 101.50%;
+    height: 40px;
 }
-
+.hover:hover{
+    color: white;
+    background: rgb(173, 52, 30); 
+    border:   1px solid rgb(173, 52, 30); 
+}
 .admin a{
     padding-left: 32%;
     margin-top: 25px;
@@ -85,7 +109,9 @@ h1{
     font-weight: bold;
     opacity: 0.8;
 }
-
 .bottom-text a{
     float: left;
+}
+.bottom-text a:hover{
+    color: rgb(168, 165, 164);
 }
