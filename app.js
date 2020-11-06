@@ -7,6 +7,7 @@ const session = require('express-session')
 const flash = require('express-flash')
 const methodOverride = require('method-override')
 const expressLayouts = require('express-ejs-layouts')
+
 const app = express()
 
 // Call for Passport Configuration
