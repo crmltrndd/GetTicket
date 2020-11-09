@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const passport = require('passport')
 const transporter = require('../config/mailer')
+const pool = require('../config/database')
  
 // Login Route
 router.get('/login', isNotAuthorized, (req,res) => {
@@ -74,11 +75,20 @@ router.get('/home', isAuthorized, (req,res) => {
 
 // Account Route 
 router.get('/account', isAuthorized, (req,res) => {
-    res.render('admin/account', {
-        title: 'GetTicket Admin Portal | Account', 
-        css: '/admin_home.css',
-        username: req.user.username,
-        role: req.user.role
+    pool.query('SELECT * FROM Admin_Profile WHERE ID = ?', [req.user.id], async (error, results) => {
+        console.log(results)
+        try {
+            res.render('admin/account', {
+                title: 'GetTicket Admin Portal | Account', 
+                css: '/admin_home.css',
+                username: req.user.username,
+                role: req.user.role,
+                phone: results[0].Phone,
+                email: results[0].Email
+            })
+        } catch (error) {
+            console.log(error)
+        }
     })
 })
 

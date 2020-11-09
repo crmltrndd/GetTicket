@@ -147,13 +147,15 @@ ul.CTAs a {
 a.reset{
     margin: 10px ;
 	background: #fff;
-	color: #015668;
+    color: #015668;
+    cursor: pointer;
 }
 a.signout,
 a.signout:hover {
     margin: 10px;
     background: #015668 !important;
     color: #fff !important;
+    cursor: pointer;
 }
 
 #content {
