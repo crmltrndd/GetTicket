@@ -1,16 +1,15 @@
-<%- include ('./partials/header.ejs', {username: username, role: role}) %>
+<%- include ('../partials/header.ejs', {username: username, role: role}) %>
 <div class="container-fluid">
     <div class="jumbotron">
         <div class="card">
             <div class="card-header">
-                Movies
+                Cinema Branches
             </div>
             <div class="card-body">
                 <h5 class="card-search">
-                    <button class="btn btn-outline-success">+ Add Movies</button>
-                    <button class="btn btn-outline-primary">Now Showing</button>
-                    <button class="btn btn-outline-primary">Coming Soon</button>
-                    <button class="btn btn-outline-danger">Inactive</button>
+                    <button class="btn btn-outline-success">+ Add Hall</button>
+                    <button class="btn btn-outline-success"> Active</button>
+                    <button class="btn btn-outline-danger"> Inactive</button>
                     <form class="form-inline my-2 my-lg-0 float-right">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i
@@ -20,21 +19,20 @@
                 <table class="table table-hover table-bordered">
                     <thead class="thead-dark">
                         <tr>
-                            <th scope="col">Poster</th>
-                            <th scope="col">Title</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Halls</th>
                             <th scope="col">Status</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><img src="../../public/images/movie4.jpg" style="width:140px;height:128px;"></td>
-                            <td>Mark</td>
+                            <th>Manila</th>
+                            <td>5</td>
                             <td class="option">
                                 <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                                    <option selected>Inactive</option>
-                                    <option value="1">Now Showing</option>
-                                    <option value="1">Coming Soon</option>
+                                    <option selected>Active</option>
+                                    <option value="1">Inactive</option>
                                 </select>
                             </td>
                             <td class="table-buttons text-right">
@@ -47,15 +45,13 @@
                     </tbody>
                     <tbody>
                         <tr>
-                            <th><img src="../../public/images/movie4.jpg" style="width:140px;height:128px;"></th>
-                            <td>Aquaman</td>
+                            <th>Taguig</th>
+                            <td>6</td>
                             <td class="option">
                                 <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                                    <option selected>Inactive</option>
-                                    <option value="1">Now Showing</option>
-                                    <option value="1">Coming Soon</option>
+                                    <option selected>Active</option>
+                                    <option value="1">Inactive</option>
                                 </select>
-                            </td>
                             <td class="table-buttons text-right">
                                 <button class="btn btn-info"><i class="fa fa-edit"></i></button>
                                 <button type="button" class="btn btn-danger" data-toggle="modal"
@@ -64,18 +60,7 @@
                             </td>
                         </tr>
                     </tbody>
-
                 </table>
-
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </ul>
-                </nav>
             </div>
         </div>
     </div>
@@ -101,4 +86,4 @@
         </div>
     </div>
 </div>
-<%- include ('./partials/footer.ejs') %>
+<%- include ('../partials/footer.ejs') %>

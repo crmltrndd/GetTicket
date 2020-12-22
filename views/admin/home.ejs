@@ -3,6 +3,8 @@
   <div class="jumbotron">
     <h2> Welcome, <%=username%>.</h2>
     <p class="lead">What would you like today?</p>
+    <%- include ('./partials/error_message.ejs') %>
+    <%- include ('./partials/success_message.ejs') %>
   </div>
 </div>
 <%- include ('./partials/footer.ejs') %>

@@ -1,0 +1,127 @@
+<%- include ('../partials/header.ejs', {username: username, role: role}) %>
+        <div class="container-fluid">
+            <div class="jumbotron">
+                <!-- Error Message -->
+                <%- include ('../partials/error_message.ejs') %>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="m-0">Movies</h3>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-search">
+                            <a href="/admin/movies/add_movie" class="btn btn-outline-success">+ Add Movies</a>
+                            
+                            <% if (filter == "All Movies") { %>
+                                <a href="/admin/movies" class="btn btn-outline-primary active">All Movies</a>
+                            <% } else { %> 
+                                <a href="/admin/movies" class="btn btn-outline-primary">All Movies</a>
+                            <% } %> 
+
+                            <% if (filter == "Now Showing") { %>
+                                <a href="/admin/movies/now_showing" class="btn btn-outline-primary active">Now Showing</a>
+                            <% } else { %> 
+                                <a href="/admin/movies/now_showing" class="btn btn-outline-primary">Now Showing</a>
+                            <% } %> 
+
+                            <% if (filter == "Coming Soon") { %>
+                                <a href="/admin/movies/coming_soon" class="btn btn-outline-primary active">Coming Soon</a>
+                            <% } else { %> 
+                                <a href="/admin/movies/coming_soon" class="btn btn-outline-primary">Coming Soon</a>
+                            <% } %> 
+
+                            <% if (filter == "Inactive") { %>
+                                <a href="/admin/movies/inactive" class="btn btn-outline-danger active">Inactive</a>
+                            <% } else { %> 
+                                <a href="/admin/movies/inactive" class="btn btn-outline-danger">Inactive</a>
+                            <% } %> 
+
+                            <form class="form-inline my-2 my-lg-0 float-right">
+                                <div>
+                                    <input class="form-control" id="searchMovie" type="search" placeholder=" Search" maxlength="30">
+                                    <span class="fa fa-search"></span>
+                                </div>
+                            </form>
+                        </h5>
+                        <table class="table table-hover table-bordered">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Poster</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="moviesTable">
+                                <% if (movies.length > 0) { %>
+                                    <% movies.forEach( movie=> { %>
+                                        <tr>
+                                            <td><img src="http://localhost:5000/images/movies/<%=movie.Movie_Poster%>"
+                                                    alt="<%= movie.Title%> " style="width:200px; height:300px;">
+                                            </td>
+                                            <td><%= movie.Title %></td>
+                                            <td><%= movie.Status %></td>
+                                            <td class="table-buttons text-right">
+                                                <a class="btn btn-info" href="/admin/movies/<%=movie.Movie_ID%>">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                                <button type="button" class="openDeleteConfirmation btn btn-danger" data-id=<%=movie.Movie_ID%> data-toggle="modal" data-target="#confirmation">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <% }) %>
+                                <% } else { %>
+                                        <tr>
+                                            <th colspan="5"><span class="d-flex justify-content-center">No record to show</span></th>
+                                        </tr>
+                                <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="confirmation" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmation"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteConfirmation">Delete Confirmation</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to delete this movie?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <form method="POST" action="/admin/movies?_method=DELETE">
+                            <input type="hidden" name="movieID" id="movieID" value="" hidden>
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include ('../partials/footer.ejs') %>
+        
+        <script>
+            $(document).ready(function () {
+                $("#searchMovie").on("keyup", function () {
+                    let value = $(this).val().toLowerCase()
+                    $("#moviesTable tr").filter(function () {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    })
+                })
+            })
+
+            // Get and set the ID of Movie to delete
+            $(document).ready(function () {
+                $(".openDeleteConfirmation").click(function () {
+                    let ID = $(this).data('id')
+                    $(".modal-footer #movieID").val(ID)
+                })
+            })
+        </script>

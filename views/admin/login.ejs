@@ -1,5 +1,13 @@
 <div class="admin">
     <img src="/images/admin_avatar.jpg" class="avatar">
+    <% if (messages.success) { %>
+        <div class="alert alert-success alert-dismissible fade show mb-1 mt-2 " role="alert">
+          <%= messages.success %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <% } %>
     <h1 class="text">ADMIN LOGIN</h1>
     <form action="/admin/login" method="POST">
         <input type="text" id="username" name="username" placeholder="Username">

@@ -24,7 +24,7 @@
         </ul>
 
         <ul class="list-unstyled CTAs">
-            <li><a href="#resetPasswordModal" data-toggle="modal" class="reset">Reset Password</a></li>
+            <li><a data-toggle="modal" data-target="#resetPasswordModal" class="reset" data-backdrop="static" data-keyboard="false" style="color: #015668">Reset Password</a></li>
             <li><a data-toggle="modal" data-target="#logout" class="signout">Sign out</a></li>
         </ul>
     </nav>
@@ -45,27 +45,33 @@
                         <button type="button" class="close" data-dismiss="modal"> &times </button>
                     </div>
 
-                    <div class="modal-header">
-                        <form>
+                    <div class="modal-body">
+                        <form class="container" name="resetForm" id="resetForm" action="/admin/home/reset_password"
+                            method="POST">
                             <div class="form-group">
                                 <label> Current Password </label>
-                                <input type="password" name="current" class="form-control">
+                                <input type="password" name="current" id="currentPass" class="form-control" maxlength="50" onchange="removeError(event.target)">
+                                <small>Error Message</small>
                             </div>
                             <div class="form-group">
-                                <label> New Password (8 character min.) </label>
-                                <input type="password" name="new" class="form-control">
+                                <label> New Password </label>
+                                <input type="password" name="new" id="newPass" class="form-control" maxlength="50" onchange="removeError(event.target)">
+                                <small>Error Message</small>
                             </div>
                             <div class="form-group">
                                 <label> Confirm Password </label>
-                                <input type="password" name="confirm" class="form-control">
+                                <input type="password" name="confirm" id="confirmPass" class="form-control" maxlength="50" onchange="removeError(event.target)">
+                                <small>Error Message</small>
                             </div>
+                            <button type="submit" onclick="return passwordValidation()" class="btn btn-info btn-lg btn-block mt-3 mb-2"> Reset Password</button>
                         </form>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-info btn-lg btn-block" data-dismiss="modal"> Reset Password</button>
                     </div>
 
                 </div>
             </div>
         </div>
+
+
+        
+
+        

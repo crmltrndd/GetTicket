@@ -1,12 +1,13 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 body{
     font-family: 'Poppins', sans-serif;
-    background-image: url(./images/admin_home_background.jpg);
+    background-image: url(../images/admin_home_background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     background: linear-gradient( rgba(0, 0, 0, 1));
 }
+
 h1{
     margin-left: 30px;
     font-family: 'Poppins', sans-serif;
@@ -15,6 +16,7 @@ h1{
 	line-height: 1.7em;
 	color: transparent;
 }
+
 p{
     margin-left: 30px;
     font-family: 'Poppins', sans-serif;
@@ -23,26 +25,31 @@ p{
 	line-height: 1.7em;
 	color: rgb(49, 49, 49);
 }
+
 h2{
     font-size: 72px;
     font-weight: 600;
     margin-left: 20px;
     color: black;
 }
+
 h3{
     margin-left: 30px;
 }
+
 .jumbotron{
     background-color: #fff1cf;
     border-radius: 8px;
     margin-top: 50px;
 }
+
 img {
     vertical-align: middle;
     border-style: none;
     height: 35px;
     padding-left: 10px;
 }
+
 a,
 a:hover,
 a:focus{
@@ -81,6 +88,7 @@ a:focus{
     color: white;
     transition: all 0.3s;
 }
+
 #sidebar.active{
 	margin-left: -250px;
 }
@@ -89,6 +97,7 @@ a:focus{
 	padding: 2px 20px 0 20px;
 	background: rgb(43, 42, 42);
 }
+
 #sidebar ul.components{ 
 	padding: 10px 0 10px 0;
 	border-bottom: 2px solid rgb(71, 69, 69);
@@ -100,7 +109,6 @@ a:focus{
 	display: block;
 }
 
-
 #sidebar li a{
     margin: 5px 5px 0 10px;
 	padding: 10px;
@@ -108,10 +116,12 @@ a:focus{
     display: block;
     transition: .5s;
 }
+
 #sidebar ul li a:hover {
     color: #015668;
     background: white;
 }
+
 #sidebar ul li a:hover{
     transform: scale(1.1);
 }
@@ -119,6 +129,7 @@ a:focus{
 a[data-toggle="collapse"] {
     position: relative;
 }
+
 .dropdown-toggle::after {
     display: block;
     position: absolute;
@@ -133,6 +144,7 @@ ul ul a {
     background-color: rgb(71, 69, 69);
     
 }
+
 ul.CTAs {
     padding: 20px 10px 0 0;
 }
@@ -144,12 +156,14 @@ ul.CTAs a {
     border-radius: 5px;
     margin-bottom: 10px;
 }
+
 a.reset{
     margin: 10px ;
 	background: #fff;
     color: #015668;
     cursor: pointer;
 }
+
 a.signout,
 a.signout:hover {
     margin: 10px;
@@ -165,14 +179,35 @@ a.signout:hover {
     transition: all 0.3s;
 }
 
-
 .navbar-light{
     background-color: #ffd369;
 }
 
+.form-group{
+    position: relative;
+    margin-bottom: 3px;
+    padding-bottom: 3px ;
+}
+
+.form-group small{
+    visibility: hidden;
+}
+
+.form-group.error small{
+    color: #e74c3c;
+    visibility: visible;
+}
+
+.form-group.error input{
+    border-color: #e74c3c;
+}
+
+.form-group.success input{
+    border-color: #2ecc71;
+}
+
 .form-control {
-    display: block;
-    width: 160%;
+    display: inline-block;
     height: calc(2.25rem + 2px);
     padding: .375rem .75rem;
     font-size: 1rem;
@@ -191,11 +226,42 @@ h6{
 }
 
 @media(max-width:768px){
-	#sidebar{margin-left: -250px;}
+	#sidebar{
+        margin-left: -250px;
+    }
 	#sidebar.active{
 		margin-left: 0px;
 	}
 	#sidebarCollapse span{
 		display: none;
 	}
+}
+
+.form-field small{
+    visibility: hidden;
+}
+
+.form-field.error small{
+    color: #e74c3c;
+    visibility: visible;
+}
+
+/* BE: Error Message for Genre in Add & Edit Movie */
+#errorMessage{
+    color: #e74c3c;
+}
+
+.form-field label{
+    margin-bottom: 2px;
+}
+
+.form-control + .fa {
+    position: absolute;
+    right: 0;
+    padding: 8px 27px;
+}
+
+/* BE: For Search Field in Movie Tab */
+#searchMovie{
+    padding-right: 30px;
 }
