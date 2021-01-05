@@ -30,6 +30,17 @@ function userValidation() {
         setSuccess(inputPassword)
     }
 
+    // Check Confirm Password
+    if (adminUserForm.inputConfirmPassword.value == '') {
+        isClear = setError(inputConfirmPassword, 'Please re-enter your password')
+    }
+    else if (adminUserForm.inputConfirmPassword.value != adminUserForm.inputPassword.value ) {
+        isClear = setError(inputConfirmPassword, 'Passwords do not match')
+    }
+    else {
+        setSuccess(inputConfirmPassword)
+    }
+
     // Check Email Address
     if (adminUserForm.inputEmail.value == '') {
         isClear = setError(inputEmail, 'This field is required')
@@ -83,6 +94,21 @@ function setSuccess(input) {
 function isNumberKey(evt) {
     var charCode = (evt.which) ? evt.which : evt.keyCode
     if (charCode > 31 && (charCode < 48 || charCode > 57))
-        return false;
-    return true;
+        return false
+    return true
 }
+
+// To limit the maximum date a user can choose (must be 18 years old)
+$(function () {
+    let today = new Date()
+    let month = today.getMonth() + 1
+    let day = today.getDate()
+    let year = today.getFullYear() - 18
+    if (month < 10)
+        month = '0' + month.toString()
+    if (day < 10)
+        day = '0' + day.toString()
+
+    var maxDate = year + '-' + month + '-' + day
+    $('#inputBirthdate').attr('max', maxDate)
+})

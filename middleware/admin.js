@@ -1,4 +1,4 @@
-//-------------------------------------------- FUNCTIONS FOR ADMIN ---------------------------------------------//
+//-------------------------------------------- MIDDLEWARES FOR ADMIN ---------------------------------------------//
 
 // To check if the user is authorized to access the route
 exports.isAuthorized = (req, res, next) => {
@@ -24,9 +24,12 @@ exports.isAdmin = (req, res, next) => {
     next()
 }
 
+// To check if currently resetting password
 exports.isResettingPassword = (req, res, next) => {
-    if (req.body.resetting) {
+    // check if reset token exist
+    if (req.cookies.reset) {
         return next()
-    }
+    } 
+    req.flash('error', 'Your session has expired.')
     res.redirect('/admin/forgot_password')
 }

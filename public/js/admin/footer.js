@@ -19,9 +19,9 @@ $(document).ready(function () {
         $("#resetPasswordModal").modal({
             backdrop: 'static',
             keyboard: false
-        });
-    });
-});
+        })
+    })
+})
 
 //----------------- Resetting Password ------------//
 
@@ -62,7 +62,7 @@ function passwordValidation() {
         removeError(newPass)
     }
 
-    return isClear>0 ? false : true
+    return isClear >0 ? false : true
 }
 
 // Add error class and display error message in small
@@ -78,9 +78,3 @@ function removeError(input) {
     const formGroup = input.parentElement
     formGroup.classList.remove('error')
 }
-
-/* Add success class
-function setSuccessFor(input) {
-    const formGroup = input.parentElement
-    formGroup.className = 'form-group success'
-}*/

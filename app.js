@@ -8,6 +8,7 @@ const flash = require('express-flash')
 const methodOverride = require('method-override')
 const expressLayouts = require('express-ejs-layouts')
 const fileUpload = require('express-fileupload')
+const cookieParser = require('cookie-parser')
 
 
 const app = express()
@@ -25,6 +26,9 @@ app.use(expressLayouts)
 app.use(express.static(path.join(__dirname, './public')))       // Set public directory for storing css & images
 app.use(express.urlencoded({ extended: false}))                 // Parse URL-encoded bodies (as sent by MTML) To access data in forms 
 app.use(express.json())                                         // Parse JSON bodies (as sent by API clients) To make the values grabbing in forms as JSON 
+
+// In order to set cookies in browser
+app.use(cookieParser())
 
 // In order to upload file
 app.use(fileUpload())
@@ -48,11 +52,18 @@ app.use(methodOverride('_method'))
 
 // Define Routes 
 app.use('/', require('./routes/index'))
+app.use('/register', require('./routes/register'))
+app.use('/login', require('./routes/login'))
+app.use('/logout', require('./routes/logout'))
+app.use('/forgot_password', require('./routes/forgot_password'))
+app.use('/reset_password', require('./routes/reset_password'))
+app.use('/contact_us', require('./routes/contact_us'))
+app.use('/cart', require('./routes/cart'))
 app.use('/admin', require('./routes/admin'))
 app.use((req, res) => {
     res.status(404).render('404', {
         title: 'Page not found',
-        css: '/404_Error.css'
+        css: '404_Error.css'
     })
 })
 

@@ -71,11 +71,10 @@ function setError(input, message) {
     return false
 }
 
-// Add success class
+// Remove error class
 function setSuccess(input) {
     const formField = input.parentElement
     formField.classList.remove('error')
-    //formField.className += ' success'
 }
 
 // Load image preview of the choosen file
@@ -95,21 +94,22 @@ function loadFile(event) {
     }
 }
 
+// For genre selection
 $(document).ready(function () {
     var multipleCancelButton = new Choices('#movieGenre', {
         removeItemButton: true,
         maxItemCount: 5,
-        //searchResultLimit: 5,
-        //renderChoiceLimit: 5
     })
 })
 
+// To display error message for genre
 function genreError() {
     genreErr = document.getElementById('errorMessage')
     genreErr.innerText = '(Please select atleast one)'
     return false
 }
 
+// To remove error message for genre
 function genreSuccess() {
     genreErr = document.getElementById('errorMessage')
     genreErr.innerText = ''

@@ -13,8 +13,7 @@
             </div>
             <div class="form-field col-lg-6 mb-2 pl-4">
                 <label for="inputUsername">Username</label>
-                <input type="text" class="form-control" id="inputUsername" name="inputUsername" maxlength="70" pattern="[@][A-Za-z0-9_]{2,70}" placeholder="@user_name" 
-                oninvalid="this.setCustomValidity('Use @ at start, then only letters, digits and underscore are allowed in suceeding')" onvalid="this.setCustomValidity('')"
+                <input type="text" class="form-control" id="inputUsername" name="inputUsername" maxlength="70"
                 value="<%= typeof inputUsername != 'undefined' ? inputUsername : ''  %>" onchange="setSuccess(event.target)">
                 <small>Error Message</small>
             </div>
@@ -25,22 +24,22 @@
                 <small>Error Message</small>
             </div>
             <div class="form-field col-lg-6 mb-2 pl-4">
+                <label for="inputConfirmPassword">Confirm Password</label>
+                <input type="password" class="form-control" id="inputConfirmPassword" name="inputConfirmPassword" maxlength="60"
+                    value="<%= typeof inputConfirmPassword != 'undefined' ? inputConfirmPassword : ''  %>" onchange="setSuccess(event.target)">
+                <small>Error Message</small>
+            </div>
+            <div class="form-field col-lg-6 mb-2 pr-4">
                 <label for="inputEmail">Email Address</label>
                 <input type="text" class="form-control" id="inputEmail" name="inputEmail" placeholder="email@gmail.com"
                     maxlength="50" value="<%= typeof inputEmail != 'undefined' ? inputEmail : ''  %>" onchange="setSuccess(event.target)">
                 <small>Error Message</small>
             </div>
-            <div class="form-field col-lg-6 mb-2 pr-4">
+            <div class="form-field col-lg-6 mb-2 pl-4">
                 <label for="inputContact">Contact No.</label>
                 <input type="tel" class="form-control" id="inputContact" name="inputContact" placeholder="09887982143"
                     maxlength="11" onkeypress="return isNumberKey(event)"
                     value="<%= typeof inputContact != 'undefined' ? inputContact : ''  %>" onchange="setSuccess(event.target)">
-                <small>Error Message</small>
-            </div>
-            <div class="form-field col-lg-6 mb-2 pl-4">
-                <label for="inputBirthdate">Birthdate</label>
-                <input type="date" class="form-control" id="inputBirthdate" name="inputBirthdate"
-                    placeholder="DD/MM/YYYY" value="<%= typeof inputBirthdate != 'undefined' ? inputBirthdate : ''  %>" onchange="setSuccess(event.target)">
                 <small>Error Message</small>
             </div>
             <div class="form-field col-lg-6 mb-2 pr-4">
@@ -49,7 +48,13 @@
                     rows="2" onchange="setSuccess(event.target)"><%= typeof inputAddress != 'undefined' ? inputAddress : ''  %></textarea>
                 <small>Error Message</small>
             </div>
-            <div class="form-field col-lg-6 mb-4 pl-4">
+            <div class="form-field col-lg-6 mb-2 pl-4">
+                <label for="inputBirthdate">Birthdate</label>
+                <input type="date" class="form-control" id="inputBirthdate" name="inputBirthdate"
+                    placeholder="DD/MM/YYYY" value="<%= typeof inputBirthdate != 'undefined' ? inputBirthdate : ''  %>" onchange="setSuccess(event.target)">
+                <small>Error Message</small>
+            </div>
+            <div class="form-field col-lg-6 mb-4 pr-4">
                 <label class="mr-3">Role</label>
                 <% if (typeof inputRole != 'undefined') { %>
                     <% if ( inputRole == 'ADMIN') { %>
@@ -79,19 +84,4 @@
 </div>
 
 <%- include ('../partials/footer.ejs') %>
-<script src="/js/add_user.js"></script>
-<script>
-    $(function(){
-    let today = new Date();
-    let month = today.getMonth() + 1;
-    let day = today.getDate();
-    let year = today.getFullYear()-18;
-    if(month < 10)
-        month = '0' + month.toString();
-    if(day < 10)
-        day = '0' + day.toString();
-    
-    var maxDate = year + '-' + month + '-' + day;
-    $('#inputBirthdate').attr('max', maxDate);
-});
-</script>
+<script src="/js/admin/add_user.js"></script>
