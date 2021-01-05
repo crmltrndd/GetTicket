@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs')
 // Display forget password form on GET
 exports.getForgotPassword = (req, res) => {
     res.render('admin/forgot_password', {
-        title: 'GetTicket Admin Portal | Forgot Password',
+        title: 'GetTicket Admin | Forgot Password',
         css: 'admin_forgot_password.css'
     })
 }
@@ -33,7 +33,7 @@ exports.postForgotPassword = (req, res) => {
                 }
                 req.flash('info', 'A verification code has been sent your email account')
                 res.render('admin/forgot_password/verify_code', {
-                    title: 'GetTicket Admin Portal | Forgot Password',
+                    title: 'GetTicket Admin | Forgot Password',
                     css: 'admin_forgot_password.css',
                     email: email,
                     resetting: true
@@ -51,7 +51,7 @@ exports.postForgotPassword = (req, res) => {
 exports.postVerifyCode = (req, res) => {
     if (otp == req.body.code) {
         res.render('admin/forgot_password/reset_password', {
-            title: 'GetTicket Admin Portal | Forgot Password',
+            title: 'GetTicket Admin | Forgot Password',
             css: 'admin_forgot_password.css',
             email: req.body.email,
             resetting: req.body.resetting
@@ -59,7 +59,7 @@ exports.postVerifyCode = (req, res) => {
     } else {
         req.flash('error', 'Invalid Verification Code')
         res.status(401).render('admin/forgot_password/verify_code', {
-            title: 'GetTicket Admin Portal | Forgot Password',
+            title: 'GetTicket Admin | Forgot Password',
             css: 'admin_forgot_password.css',
             email: req.body.email,
             resetting: req.body.resetting

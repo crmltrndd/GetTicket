@@ -1,0 +1,105 @@
+<%- include ('./partials/navbar.ejs') %>
+
+    <div class="container">
+        <div class="row px-3">
+            <div class="col-lg-10 col-xl-9 card flex-row mx-auto my-5">
+                <div class="card-body">
+                    <h1 class="title text-center mb-2 mt-5 text-info">Sign Up</h1>
+                    <br>
+                    <p class="title text-left mt-2 mb-4 text-secondary text-dark"> <b>Account Information</b> </p>
+                    <form name="registerForm" id="registerForm" class="contact-form row" action="/register"
+                        method="POST">
+                        <div class="form-field col-lg-6 mb-3 pr-3">
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Username"
+                                maxlength="50" onchange="setSuccess(event.target)">
+                            <small>Error Message</small>
+                        </div>
+                        <div class="form-field col-lg-6 mb-3 pr-3">
+                            <input type="text" class="form-control" id="email" name="email" placeholder="Email"
+                                maxlength="50" onchange="setSuccess(event.target)">
+                            <small>Error Message</small>
+                        </div>
+                        <div class="form-field col-lg-6 mb-3 pr-3">
+                            <input type="password" class="form-control" id="password" name="password"
+                                placeholder="Password" maxlength="60" onchange="setSuccess(event.target)">
+                            <small>Error Message</small>
+                        </div>
+                        <div class="form-field col-lg-6 mb-3 pr-3">
+                            <input type="password" class="form-control" id="repassword" name="repassword"
+                                placeholder="Confirm Password" maxlength="60" onchange="setSuccess(event.target)">
+                            <small>Error Message</small>
+                        </div>
+                        <p class="title text-left col-lg-12 mt-3 mb-4 text-secondary text-dark"> <b>User Information</b>
+                        </p>
+                        <div class="form-field col-lg-6 mb-3 pr-3">
+                            <input type="text" class="form-control" id="firstname" name="firstname"
+                                placeholder="First Name" onchange="setSuccess(event.target)">
+                            <small>Error Message</small>
+                        </div>
+                        <div class="form-field col-lg-6 mb-3 pr-3">
+                            <input type="text" class="form-control" id="lastname" name="lastname"
+                                placeholder="Last Name" onchange="setSuccess(event.target)">
+                            <small>Error Message</small>
+                        </div>
+                        <div class="form-field col-lg-6 mb-3 pr-3">
+                            <input type="tel" class="form-control" id="contact" name="contact"
+                                placeholder="Contact Number" onchange="setSuccess(event.target)"
+                                onkeypress="return isNumberKey(event)" maxlength="13">
+                            <small>Error Message</small>
+                        </div>
+                        <div class="form-field col-lg-6 mb-3 pr-3">
+                            <input type="text" class="form-control textbox-n" id="birthdate" name="birthdate"
+                                placeholder="Birthdate" onfocus="(this.type='date')" onblur="(this.type='text')"
+                                onchange="setSuccess(event.target)">
+                            <small>Error Message</small>
+                        </div>
+                        <div class="form-field col-lg-6 mb-3 pr-3">
+                            <textarea class="form-control m-0" id="address" name="address" placeholder="Address"
+                                rows="3" onchange="setSuccess(event.target)"></textarea>
+                            <small>Error Message</small>
+                        </div>
+
+                        <div class="container my-3">
+                            <div class="text-justify custom-control custom-checkbox checker">
+                                <input type="checkbox" class="custom-control-input" name="termsConditions"
+                                    id="termsConditions" checked onchange="setSuccess(event.target)">
+                                <label class="custom-control-label font-weight-light" for="termsConditions">
+                                    I have read and AGREE on the
+                                    End User License Agreement and Privacy Policy.
+                                </label>
+                                <small>Error Message</small>
+                            </div>
+                            <div class="text-justify custom-control custom-checkbox my-3 checker">
+                                <input type="checkbox" class="custom-control-input" name="privacyPolicy"
+                                    id="privacyPolicy" checked onchange="setSuccess(event.target)">
+                                <label class="custom-control-label font-weight-light" for="privacyPolicy">
+                                    I hereby give full consent
+                                    to GetTicket to collect, record, organize, store, update, use, consolidate, block,
+                                    erase or otherwise process information, pertaining to myself and the transactions
+                                    subject hereof which will be used for membership purposes and availment of all
+                                    services of GetTicket and Times Square Mall cinemas. In this connection, I
+                                    acknowledge that I have read, understood and/or have been duly informed of the terms
+                                    and conditions pertaining to the data privacy practices as reflected in the
+                                    Company’s Data Privacy Policy and I hereby express my full conformity thereto.
+                                </label>
+                                <small>Error Message</small>
+                            </div>
+                        </div>
+
+                        <div class="row mx-auto my-4">
+                            <button type="submit" class="btn btn-info btn-lg mr-3 mb-4"
+                                onclick="return registerValidation()">Register</button>
+                            <button class="btn btn-outline-info btn-lg mr-3 mb-4" type="reset"
+                                onclick="return removeError()">C l e a r</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var usernameList = "<%= usernames %>";
+        var emailList = "<%= emails %>";
+    </script>
+    <script src="/js/register.js"></script>

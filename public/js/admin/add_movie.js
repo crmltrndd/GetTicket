@@ -10,7 +10,7 @@ function movieValidation() {
         isClear = setError(movieTitle, 'This field is required')
     } else if (titleList.includes(movieForm.movieTitle.value)) {
         isClear = setError(movieTitle, 'Movie title already exists')
-    }else {
+    } else {
         setSuccess(movieTitle)
     }
 
@@ -63,11 +63,10 @@ function setError(input, message) {
     return false
 }
 
-// Add success class
+// Remove error class
 function setSuccess(input) {
     const formField = input.parentElement
     formField.classList.remove('error')
-    //formField.className += ' success'
 }
 
 // Load image preview of the choosen file
@@ -84,6 +83,7 @@ function loadFile(event) {
     }
 }
 
+// For genre selection
 $(document).ready(function () {
     var multipleCancelButton = new Choices('#movieGenre', {
         removeItemButton: true,
@@ -93,12 +93,14 @@ $(document).ready(function () {
     })
 })
 
+// To display error message for genre
 function genreError() {
     genreErr = document.getElementById('errorMessage')
     genreErr.innerText = '(Please select atleast one)'
     return false
 }
 
+// To remove error message for genre
 function genreSuccess() {
     genreErr = document.getElementById('errorMessage')
     genreErr.innerText = ''

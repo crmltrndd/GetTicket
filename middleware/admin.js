@@ -1,4 +1,4 @@
-//-------------------------------------------- FUNCTIONS FOR ADMIN ---------------------------------------------//
+//-------------------------------------------- MIDDLEWARES FOR ADMIN ---------------------------------------------//
 
 // To check if the user is authorized to access the route
 exports.isAuthorized = (req, res, next) => {
@@ -24,6 +24,7 @@ exports.isAdmin = (req, res, next) => {
     next()
 }
 
+// To check if currently resetting password
 exports.isResettingPassword = (req, res, next) => {
     if (req.body.resetting) {
         return next()

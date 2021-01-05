@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs')
 // Display Home Page
 exports.getHome = (req, res) => {
     res.render('admin/home', {
-        title: 'GetTicket Admin Portal',
+        title: 'GetTicket Admin',
         css: 'admin_home.css',
         username: req.user.username,
         role: req.user.role,

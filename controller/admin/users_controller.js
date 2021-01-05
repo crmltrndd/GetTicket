@@ -9,10 +9,7 @@ exports.getUsers = (req, res) => {
             console.error(error)
         } else {
             res.render('admin/users', {
-                title: 'GetTicket Admin Portal | Users',
-                css: 'admin_home.css',
-                username: req.user.username,
-                role: req.user.role,
+                ...makeObjectParameter('GetTicket Admin | Users', 'admin_home.css', req.user.username, req.user.role),
                 id: req.user.id,
                 users: results
             })
@@ -24,10 +21,7 @@ exports.getUsers = (req, res) => {
 // Display add user form on GET.
 exports.getAddUser = (req, res) => {
     res.render('admin/users/add_user', {
-        title: 'GetTicket Admin Portal | Add Users',
-        css: 'admin_home.css',
-        username: req.user.username,
-        role: req.user.role,
+        ...makeObjectParameter('GetTicket Admin | Add User', 'admin_home.css', req.user.username, req.user.role),
     })
 }
 
@@ -43,10 +37,7 @@ exports.postAddUser = (req, res) => {
             if (results.length > 0) {
                 req.flash('error', 'The email is already in use')
                 res.status(403).render('admin/users/add_user', {
-                    title: 'GetTicket Admin Portal | Add Users',
-                    css: 'admin_home.css',
-                    username: req.user.username,
-                    role: req.user.role,
+                    ...makeObjectParameter('GetTicket Admin | Add User', 'admin_home.css', req.user.username, req.user.role),
                     inputName, inputUsername, inputPassword, inputEmail, inputContact, inputBirthdate, inputAddress, inputRole
                 })
             } else {
@@ -58,10 +49,7 @@ exports.postAddUser = (req, res) => {
                         if (results.length > 0) {
                             req.flash('error', 'The username is already in use')
                             res.status(403).render('admin/users/add_user', {
-                                title: 'GetTicket Admin Portal | Add Users',
-                                css: 'admin_home.css',
-                                username: req.user.username,
-                                role: req.user.role,
+                                ...makeObjectParameter('GetTicket Admin | Add User', 'admin_home.css', req.user.username, req.user.role),
                                 inputName, inputUsername, inputPassword, inputEmail, inputContact, inputBirthdate, inputAddress, inputRole
                             })
                         } else {
@@ -89,10 +77,10 @@ exports.postAddUser = (req, res) => {
 // Handle user status update on POST.
 exports.postUserStatusUpdate = (req, res) => {
     let status;
-    if (req.body.statusSelection == '1') {
-        status = 1
-    } else if (req.body.statusSelection == '0') {
+    if (req.body.statusValue == '1') {
         status = 0
+    } else if (req.body.statusValue == '0') {
+        status = 1
     } else {
         req.flash('error', 'Invalid Status!')
         res.status(400).redirect('/admin/users')
@@ -106,4 +94,17 @@ exports.postUserStatusUpdate = (req, res) => {
             res.redirect('/admin/users')
         }
     })
+}
+
+/*-------- Functions --------*/
+
+// Constructor for repetitive parameters
+function makeObjectParameter(pageTitle, pageStyle, userName, userRole) {
+    const object = {
+        title: pageTitle,
+        css: pageStyle,
+        username: userName,
+        role: userRole,
+    }
+    return object;
 }
