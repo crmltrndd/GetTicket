@@ -7,6 +7,8 @@ const session = require('express-session')
 const flash = require('express-flash')
 const methodOverride = require('method-override')
 const expressLayouts = require('express-ejs-layouts')
+const fileUpload = require('express-fileupload')
+
 
 const app = express()
 
@@ -23,6 +25,9 @@ app.use(expressLayouts)
 app.use(express.static(path.join(__dirname, './public')))       // Set public directory for storing css & images
 app.use(express.urlencoded({ extended: false}))                 // Parse URL-encoded bodies (as sent by MTML) To access data in forms 
 app.use(express.json())                                         // Parse JSON bodies (as sent by API clients) To make the values grabbing in forms as JSON 
+
+// In order to upload file
+app.use(fileUpload())
 
 // In order to flash messages
 app.use(flash())
@@ -44,6 +49,12 @@ app.use(methodOverride('_method'))
 // Define Routes 
 app.use('/', require('./routes/index'))
 app.use('/admin', require('./routes/admin'))
+app.use((req, res) => {
+    res.status(404).render('404', {
+        title: 'Page not found',
+        css: '/404_Error.css'
+    })
+})
 
 // Start Server
 app.listen( process.env.PORT, () => {

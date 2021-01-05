@@ -1,0 +1,84 @@
+<%- include ('../partials/header.ejs', {username: username, role: role}) %>
+<% var genres = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Drama", "Experimental", "Fantasy", "Historical", "Horror", "Mystery", "Romance", "Satire", "Science Fiction", "Social", "Thriller", "Urban", "Western"] %>
+<div class="container">
+  <div class="jumbotron">
+    <!-- Error Message -->
+    <%- include ('../partials/error_message.ejs') %>
+    <form role="form" id="addMovieForm" name="addMovieForm" class="contact-form row" action="/admin/movies/add_movie"
+      method="post" enctype="multipart/form-data">
+      <form name="adminUserForm" id="adminUserForm" class="contact-form row" action="/admin/users/add_user"
+        method="post">
+
+        <div class="form-field col-lg-6 mb-2 pr-4">
+          <label for="movieTitle">Movie Title</label>
+          <input type="text" class="form-control" id="movieTitle" name="movieTitle" maxlength="50"
+            value="<%= typeof movieTitle != 'undefined' ? movieTitle : ''  %>" onchange="setSuccess(event.target)" >
+          <small>Error Message</small>
+        </div>
+
+        <div class="form-field col-lg-6 mb-2 pr-4">
+          <label for="movieStatus">Status</label>
+          <select class="form-control" id="movieStatus" name="movieStatus">
+            <option value="Now Showing" selected>Now Showing</option>
+            <option value="Coming Soon">Coming Soon</option>
+            <option value="Inactive">Inactive</option>
+          </select>
+          <small>Error Message</small>
+        </div>
+
+        <div class="form-field col-lg-6 mb-2 pr-4">
+          <label for="movieGenre">Genre</label>
+          <select class="form-control" multiple data-live-search="true" id="movieGenre" name="movieGenre">
+            <% genres.forEach( genre => { %>
+            <option value="<%= genre %>"><%= genre %></option>
+            <% }) %>
+          </select>
+          <small>Error Message</small>
+        </div>
+
+        <div class="form-field col-lg-6 mb-3 pr-4">
+          <label for="releaseDate">Release Date</label>
+          <input type="date" class="form-control" id="releaseDate" name="releaseDate"
+            value="<%= typeof releaseDate != 'undefined' ? releaseDate : ''  %>" onchange="setSuccess(event.target)" >
+          <small>Error Message</small>
+        </div>
+
+        <div class="form-field col-lg-6 mb-2 pr-4">
+          <label for="movieDescription">Description</label>
+          <textarea class="form-control m-0" id="movieDescription" name="movieDescription" rows="3"
+            onchange="setSuccess(event.target)"><%= typeof movieDescription != 'undefined' ? movieDescription : ''  %></textarea>
+          <small>Error Message</small>
+        </div>
+
+        <div class="form-field col-lg-6 mb-3 pr-4">
+          <label for="movieDuration">Duration</label>
+          <input type="text" class="html-duration-picker" name="movieDuration" id="movieDuration" style="width: 100px;"
+            data-duration-max="24:00:00"
+            data-duration="<%= typeof movieDuration != 'undefined' ? movieDuration : '00:00:00'  %>" >
+          <span class="ml-1">HH:MM:SS</span>
+          <br>
+          <small>Error Message</small>
+        </div>
+
+        <div class="form-field col-lg-6 mb-2 pr-4">
+          <label for="moviePoster">Movie Poster</label>
+          <input type="file" class="d-block" accept="image/jpeg" name="moviePoster" id="moviePoster"
+            onchange="loadFile(event)" >
+          <small>Error Message</small>
+          <br>
+          <img id="image" style="width:200px; height:300px; display: none;" class="img-responsive" />
+        </div>
+
+        <div class="form-field col-lg-6 mb-2 pr-4"></div>
+
+        <div class="row ml-auto mt-4">
+          <a class="btn btn-secondary btn-lg mr-3" href="/admin/movies">Cancel</a>
+          <button type="submit" onclick="return movieValidation()" class="btn btn-primary btn-lg mr-4">Add
+            Movie</button>
+        </div>
+
+      </form>
+  </div>
+</div>
+<%- include ('../partials/footer.ejs') %>
+<script src="/js/add_movie.js"></script>

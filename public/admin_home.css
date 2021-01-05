@@ -170,9 +170,31 @@ a.signout:hover {
     background-color: #ffd369;
 }
 
+.form-group{
+    position: relative;
+    margin-bottom: 3px;
+    padding-bottom: 3px ;
+}
+
+.form-group small{
+    visibility: hidden;
+}
+
+.form-group.error small{
+    color: #e74c3c;
+    visibility: visible;
+}
+
+.form-group.error input{
+    border-color: #e74c3c;
+}
+
+.form-group.success input{
+    border-color: #2ecc71;
+}
+
 .form-control {
-    display: block;
-    width: 160%;
+    display: inline-block;
     height: calc(2.25rem + 2px);
     padding: .375rem .75rem;
     font-size: 1rem;
@@ -198,4 +220,33 @@ h6{
 	#sidebarCollapse span{
 		display: none;
 	}
+}
+
+.form-field small{
+    visibility: hidden;
+}
+
+.form-field.error small{
+    color: #e74c3c;
+    visibility: visible;
+}
+
+.form-field.error input{
+    border-color: #e74c3c;
+}
+
+.form-field.success input{
+    border-color: #2ecc71;
+}
+
+.form-field.error textarea{
+    border-color: #e74c3c;
+}
+
+.form-field.success textarea{
+    border-color: #2ecc71;
+}
+
+.form-field label{
+    margin-bottom: 2px;
 }
