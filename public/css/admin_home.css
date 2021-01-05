@@ -246,6 +246,7 @@ h6{
     visibility: visible;
 }
 
+<<<<<<< HEAD:public/css/admin_home.css
 /* BE: Error Message for Genre in Add & Edit Movie */
 #errorMessage{
     color: #e74c3c;
@@ -264,4 +265,24 @@ h6{
 /* BE: For Search Field in Movie Tab */
 #searchMovie{
     padding-right: 30px;
+=======
+.form-field.error input{
+    border-color: #e74c3c;
+}
+
+.form-field.success input{
+    border-color: #2ecc71;
+}
+
+.form-field.error textarea{
+    border-color: #e74c3c;
+}
+
+.form-field.success textarea{
+    border-color: #2ecc71;
+}
+
+.form-field label{
+    margin-bottom: 2px;
+>>>>>>> 62dff7feaa5c8d5298438faeff9e9c6865ef57cb:public/admin_home.css
 }
