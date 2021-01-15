@@ -3,7 +3,6 @@ const pool = require('../../config/database')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
-//--- Forgot Password Route ---//
 // Display forget password form on GET
 exports.getForgotPassword = (req, res) => {
     res.render('admin/forgot_password', {
@@ -42,7 +41,7 @@ exports.postForgotPassword = (req, res) => {
                 if (error) {
                     return console.error(error)
                 }
-                req.flash('info', 'A verification code has been sent your email account')
+                req.flash('info', 'A verification code has been sent to your email account.')
                 res.render('admin/forgot_password/verify_code', {
                     title: 'GetTicket Admin | Forgot Password',
                     css: 'admin_forgot_password.css',

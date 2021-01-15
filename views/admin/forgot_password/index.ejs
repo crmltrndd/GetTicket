@@ -4,7 +4,7 @@
       <form action="/admin/forgot_password" method="POST">
         <h5 class="card-title mb-3">Find Your Account</h5>
         <hr class="badge-secondary mb-4">
-        <%- include ('../partials/error_message.ejs') %>
+        <%- include ('../../partials/messages/error_message.ejs') %>
         <small class="form-text text-muted">Please enter your email to search your account.</small>
         <input type="email" class="form-control" name="email" id="email" placeholder="@Email">
         <button type="cancel" class="btn btn-secondary btn-sm mt-3 float-right">Cancel</button>

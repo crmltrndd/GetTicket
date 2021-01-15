@@ -3,7 +3,7 @@
     <div class="container">
         <div class="jumbotron">
             <!-- Error Message -->
-            <%- include ('../partials/error_message.ejs') %>
+            <%- include ('../../partials/messages/error_message.ejs') %>
                 <form role="form" id="movieForm" name="movieForm" class="contact-form row"
                     action="/admin/movies/<%=movieID%>?_method=PUT" method="POST" enctype="multipart/form-data">
 
@@ -108,7 +108,7 @@
         </div>
     </div>
     <%- include ('../partials/footer.ejs') %>
-        <script>
-            var titleList = "<%= movieTitles %>";
-        </script>
-        <script src="/js/admin/edit_movie.js"></script>
+    <script>
+        var titleList = "<%= movieTitles %>";
+    </script>
+    <script src="/js/admin/edit_movie.js"></script>

@@ -2,7 +2,7 @@ const pool = require('../../config/database')
 const bcrypt = require('bcryptjs')
 
 
-// Display Home Page
+// Display Admin Home Page
 exports.getHome = (req, res) => {
     res.render('admin/home', {
         title: 'GetTicket Admin',
