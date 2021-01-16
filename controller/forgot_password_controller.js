@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken')
 exports.getForgotPassword = (req, res) => {
     res.render('forgot_password', {
         title: 'GetTicket | Forgot Password',
-        css: '',
+        css: 'user_contact_us.css',
     })
 }
 
@@ -30,7 +30,12 @@ exports.postForgotPassword = (req, res) => {
             const mailOptions = {
                 to: email,
                 subject: "GetTicket Account Recovery",
-                html: `<p> Click this <a href="http://localhost:5000/reset_password/${payload.id}/${token}">link</a> to reset your password.</p>`
+                html: 
+                `<h3>Forgot your password?</h3>
+                <p>We're sending you this because we've received a request to reset your password. If you didn't make this request, just ignore this email. Otherwise, you can change your password using this link:</p>
+                <p><a href="http://localhost:5000/reset_password/${payload.id}/${token}">RESET PASSWORD</a></p>
+                <div>Cheers,</div>
+                <div><b>Your GetTicket team</b></div>`
             } 
             
             transporter.sendMail(mailOptions, (error, info) => {

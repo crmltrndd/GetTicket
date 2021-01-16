@@ -13,7 +13,7 @@ exports.isAuthorized = (req, res, next) => {
                 req.flash('error', 'Please log in')
                 res.redirect('/login')
             } else {
-                //console.log(decodedToken)
+                console.log(decodedToken)
                 next()
             }
         })

@@ -9,7 +9,7 @@ exports.getRegister = (req, res) => {
         if (error) {
             console.error(error)
         } else {
-            // Passing list of usernames for checking if Movie Title already exist
+            // Passing list of usernames for checking if Username and Email already exist
             let usernameList = []
             let emailList = []
             result.forEach(user => {

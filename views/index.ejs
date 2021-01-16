@@ -1,2 +1,102 @@
-
 <%- include ('./partials/navbar.ejs') %>
+    <!-- Banner -->
+    <div class="jumbotron my-4 mx-5">
+        <div class="container mx-auto">
+            <div class="row">
+                <div class="col">
+                    <h5 class="display-3 text-center my-5 pt-5">CINEMA ADVISORY</h5>
+                </div>
+                <div class="d-none d-lg-block separator"></div>
+                <div class="col text-center">
+                    <p class="lead">Not sure of your movie plans?</p>
+                    <p id="reserve">RESERVE YOUR SEAT</p>
+                    <p class="lead1">Now reserve your seats and PAY LATER up to 1 hour before the show.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner End -->
+
+    <!-- Tabs -->
+    <section id="tabs">
+        <div class="container">
+
+            <!-- Tab Selection -->
+            <nav>
+                <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nowShowingTab" data-toggle="tab" href="#nowShowing"
+                        role="tab" aria-controls="nav-home" aria-selected="true">NOW SHOWING</a>
+                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#comingSoon" role="tab"
+                        aria-controls="nav-profile" aria-selected="false">COMING SOON</a>
+                </div>
+            </nav>
+
+            <!-- Tab Selection -->
+            <div class="tab-content py-3 my-3 px-3 px-sm-0" id="nav-tabContent">
+                <!-- Now Showing Tab -->
+                <div class="tab-pane fade show active" id="nowShowing" role="tabpanel" aria-labelledby="nowShowingTab">
+                    <div class="services">
+                        <div class="row">
+                            <% if (movies.length > 0) { %>
+                                <% movies.forEach( movie => { %>
+                                    <% if (movie.Status === "Now Showing") { %>
+                                        <!-- split time & convert to number -->
+                                        <% let duration = movie.Duration.split(":").map(i=>Number(i)) %>
+                                        <div class="col-lg-4 col-m-4 col-12 ml-0 my-3">
+                                            <div class="card">
+                                                <img class="card-img-top" src="http://localhost:5000/images/movies/<%=movie.Movie_Poster%>">
+                                                <div class="card-body text-dark">
+                                                    <h5 class="text-center card-title"><%=movie.Title%></h5>
+                                                    <div class="text-center card-text">
+                                                        <%= duration[0] > 1 ? duration[0]+"hrs " : duration[0] === 1 ? duration[0]+"hr " : ""%>
+                                                        <%= duration[1] > 1 ? duration[1]+"mins" : duration[1] === 1 ? duration[1]+"min" : duration[1] === 0 && duration[0] === 0 ? "Not Applicable" : ""%>
+                                                    </div>
+                                                    <div class="text-center card-text mb-2"><%=movie.Genre%></div>
+                                                    <a href="#" class="btn btn-warning btn-lg px-5">Buy Ticket</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <% } %> 
+                                <% }) %>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coming Soon Tab -->
+                <div class="tab-pane fade" id="comingSoon" role="tabpanel" aria-labelledby="comingSoonTab">
+                    <div class="services">
+                        <div class="row">
+                            <% if (movies.length > 0) { %>
+                                <% movies.forEach( movie => { %>
+                                    <% if (movie.Status === "Coming Soon") { %>
+                                        <!-- split time & convert to number -->
+                                        <% let duration = movie.Duration.split(":").map(i=>Number(i)) %>
+                                        <div class="col-lg-4 col-m-4 col-12 ml-0 my-3">
+                                            <div class="card">
+                                                <img class="card-img-top" src="http://localhost:5000/images/movies/<%=movie.Movie_Poster%>">
+                                                <div class="card-body text-dark">
+                                                    <h5 class="text-center card-title"><%=movie.Title%></h5>
+                                                    <div class="text-center card-text">
+                                                        <%= duration[0] > 1 ? duration[0]+"hrs " : duration[0] === 1 ? duration[0]+"hr " : ""%>
+                                                        <%= duration[1] > 1 ? duration[1]+"mins" : duration[1] === 1 ? duration[1]+"min" : duration[1] === 0 && duration[0] === 0 ? "Not Applicable" : ""%>
+                                                    </div>
+                                                    <div class="text-center card-text mb-2"><%=movie.Genre%></div>
+                                                    <a href="#" class="btn btn-warning btn-lg px-5">Buy Ticket</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <% } %> 
+                                <% }) %>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Tabs End -->
+
+
+    <%- include ('./partials/footer.ejs') %>

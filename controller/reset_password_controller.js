@@ -33,7 +33,7 @@ exports.postResetPassword = (req, res) => {
 
                 } 
 
-                // if verified, display reset password form
+                // if verified, update in the database
                 const hashedPassword = await bcrypt.hash(password, 10)
                 pool.query('UPDATE User_Profile SET Password = ? WHERE User_ID = ?', [hashedPassword, id], (errr) => {
                     if (errr) {

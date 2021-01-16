@@ -58,7 +58,8 @@ app.use('/logout', require('./routes/logout'))
 app.use('/forgot_password', require('./routes/forgot_password'))
 app.use('/reset_password', require('./routes/reset_password'))
 app.use('/contact_us', require('./routes/contact_us'))
-app.use('/cart', require('./routes/cart'))
+app.use('/account', require('./routes/account'))
+//app.use('/cart', require('./routes/cart'))
 app.use('/admin', require('./routes/admin'))
 app.use((req, res) => {
     res.status(404).render('404', {

@@ -1,0 +1,159 @@
+body{
+    background-color: #6ca3df !important;
+    background-image: url(../images/grdnt_BG5.png);
+    position: relative;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Navbar Style */
+.navbar{
+    padding: 5px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 36px;
+    letter-spacing: .8px;
+    background: rgba(59, 59, 59, 0.6)!important;
+}
+nav .btn{
+    color: #ffba08;
+    border-radius: 50px;
+    text-decoration: none;
+}
+.nav-link{
+    transition: .5s;
+}
+.nav-link:hover{
+    transform: scale(1.03);
+}
+.dropdown-item:hover{
+    background-color: white;
+    color: #ffba08;
+}
+.separator{
+    align-self: center;
+    border-right: 2px solid rgb(163, 159, 159);
+    margin-right: 10px;
+    height: 20px;
+}
+/* Navbar Style - End */
+
+/* Homepage style */
+#reserve{
+    font-size: 45px;
+    color: rgb(255, 72, 72);
+    text-align: center;
+    padding: 0;
+}
+.col{
+    margin: 0% 4%;
+}
+.col .lead{
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 85px 3px 10px 5px;
+}
+.col .lead1{
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 10px 3px 10px 5px;
+}
+.jumbotron{
+    margin-top: 20px;
+    border-radius: 20px;
+    background: url(../images/film_background3.jpg);
+    position: relative;
+    min-height: 60vh;
+    background-size: cover;
+}
+.jumbotron h5{
+    color: white;
+    font-weight: bold;
+    padding-right: 10px;
+}
+.jumbotron p{
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+}
+.jumbotron .separator{
+    align-self: center;
+    border-right: 3px solid rgb(255, 255, 255);
+    margin-right: 5px;
+    height: 50vh; 
+}
+
+/* Services style */
+.services{
+    text-align: center;
+    margin: 0 5%;
+    margin-bottom: 5%;
+    border: none;
+}
+.services h1{
+    font-size: 30px;
+    margin-bottom: 35px;
+}
+.services .card{
+    border: 1px solid rgb(116, 112, 112);
+}
+.services .card-body{
+    padding: 1rem .9rem;
+    background-color: white;
+}
+.services .card-body .card-title{
+    color: rgb(51, 51, 51);
+    font-weight: 700;
+}
+.services .btn-warning{
+    border-radius: 50px;
+    border-color: white;
+}
+
+/* Tab Section */
+#tabs{
+    margin-top: 5rem;
+    color: #eee;
+}
+#tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #f3f3f3;
+    background-color: transparent;
+    border-color: transparent transparent #f3f3f3;
+    border-bottom: 4px solid !important;
+    font-size: 20px;
+    font-weight: bold;
+}
+#tabs .nav-tabs .nav-link {
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    color: #eee;
+    font-size: 20px;
+}
+
+/* Footer style */
+.footer{
+    background: rgb(44, 44, 44); 
+    position: static;
+    bottom: 0;
+    width: 100%; 
+    padding: 10px;
+    margin-top: 50px;
+    color: rgb(78, 78, 78);
+    cursor: none;
+}
+.footer p{
+    font-size: 14px;
+    color: #f1e6c8;
+    margin: 5px 0 0 0;
+}
+.footer a{
+    font-size: 14px;
+    color: #ffffff;
+    padding: 10px 10px;
+}
+
+

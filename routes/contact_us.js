@@ -8,7 +8,7 @@ const { checkUser } = require('../middleware/user')
 router.get('/', checkUser, (req, res) => {
     res.render('contact_us', {
         title: 'GetTicket | Contact Us',
-        css: '',
+        css: 'user_contact_us.css',
     })
 })
 

@@ -251,8 +251,13 @@ function makeObjectParameter(pageTitle, pageStyle, userName, userRole) {
 function toStringGenre(movieGenre){
     let stringMovieGenre = ''
     if (Array.isArray(movieGenre)) {
-        movieGenre.forEach(genre => {
-            stringMovieGenre += genre + ' '
+        movieGenre.forEach( (genre,index,array) => {
+            // On last iteration
+            if (index === (array.length -1)) {
+                stringMovieGenre += genre
+            } else {
+                stringMovieGenre += genre + ' | '
+            }
         })
     } else {
         movieGenres = movieGenre

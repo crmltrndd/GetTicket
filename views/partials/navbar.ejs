@@ -1,26 +1,43 @@
 <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">GetTicket</a>
+        <a class="navbar-brand" href="/"><img src="/images/GetTicket.png" alt="GetTicket Logo" height="70"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDropdown"
             aria-controls="navbarDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarDropdown">
-            <div class="navbar-nav">
-                <a href="/" class="nav-item nav-link mr-2">Home</a>
-                <a href="/contact_us" class="nav-item nav-link mr-2">Contact Us</a>
-            </div>
-            <div class="navbar-nav ml-auto">
+            <div class="navbar-nav ml-auto pr-3">
+                <li class="">
+                    <a href="/" class="nav-item nav-link mx-3">HOME</a>
+                </li>
+                <li>
+                    <a href="/contact_us" class="nav-item nav-link mx-3">CONTACT US</a>
+                </li>
                 <% if (user) { %>
-                    <a href="#" class="nav-item nav-link mr-2">
-                        <%= user.Username %>
-                    </a>
-                    <a href="/logout" class="nav-item nav-link mr-2">Logout</a>
+                    <li class="dropdown show">
+                        <a class="nav-link dropdown-toggle mx-3" href="#" role="button" id="dropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">HI
+                            "<%= user.Username %>"
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="/account/<%=user.Username%>">My Account</a>
+                            <a class="dropdown-item" href="/transaction_history">Transaction History</a>
+                            <a class="dropdown-item" href="/logout">Signout</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="nav-link ml-3" href="/"><i class="fa fa-shopping-cart fa-2x"
+                                aria-hidden="true"></i></a>
+                    </li>
                 <% } else { %>
-                    <a href="/register" class="nav-item nav-link mr-2">Register</a>
+                    <li>
+                        <a href="/register" class="nav-item nav-link mx-3">REGISTER</a>
+                    </li>
                     <div class="d-none d-lg-block separator"></div>
-                    <a href="/login" class="nav-item nav-link mr-2">Login</a>
+                    <li>
+                        <a href="/login" class="nav-item nav-link mx-3">LOGIN</a>
+                    </li>
                 <% } %>
             </div>
         </div>

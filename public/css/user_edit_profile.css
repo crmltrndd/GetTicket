@@ -1,0 +1,143 @@
+/* Edit Profile style */
+.edit-profile .card{
+    background-color:  white;
+    border-radius: 20px;
+}
+.edit-profile .btn-outline-warning{
+    border-radius: 10px;
+}
+.edit-profile .btn-warning{
+    border-radius: 10px;
+    color: white;
+}
+.edit-profile .btn:hover{
+    color: white;
+}
+.edit-profile p{
+    font-size: 14px;
+}
+.form-control{
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    border-color: rgb(59, 59, 59) !important;
+    border-style: solid !important;
+    border-width: 0 0 2px 0 !important;
+    padding: 0px !important;
+    color: #495057;
+    height: auto;
+    border-radius: 0;
+    background-clip: padding-box;
+}
+
+body{
+    background-color: #6ca3df !important;
+    background-image: url(../images/grdnt_BG5.png);
+    position: relative;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Navbar Style */
+.navbar{
+    padding: 5px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 36px;
+    letter-spacing: .8px;
+    background: rgba(59, 59, 59, 0.6)!important;
+}
+nav .btn{
+    color: #ffba08;
+    border-radius: 50px;
+    text-decoration: none;
+}
+.nav-link{
+    transition: .5s;
+}
+.nav-link:hover{
+    transform: scale(1.03);
+}
+.dropdown-item:hover{
+    background-color: white;
+    color: #ffba08;
+}
+.separator{
+    align-self: center;
+    border-right: 2px solid rgb(163, 159, 159);
+    margin-right: 10px;
+    height: 20px;
+}
+
+/* Footer style */
+.footer{
+    background: rgb(44, 44, 44); 
+    position: static;
+    bottom: 0;
+    width: 100%; 
+    padding: 10px;
+    margin-top: 50px;
+    color: rgb(78, 78, 78);
+    cursor: none;
+}
+.footer p{
+    font-size: 14px;
+    color: #f1e6c8;
+    margin: 5px 0 0 0;
+}
+.footer a{
+    font-size: 14px;
+    color: #ffffff;
+    padding: 10px 10px;
+}
+@media only screen and (min-width: 1024px) and (min-height: 1200px) {
+    .footer{
+        background: #333333;
+        color: aliceblue;
+        position: fixed;
+        bottom: 0px;
+    }
+    /*footer {margin-top: 230px;}*/
+}
+
+/* BE Modifications - starting point */
+.separator{
+    align-self: center;
+    border-right: 1px solid rgb(163, 159, 159);
+    margin-right: 5px;
+    height: 30px;
+}
+
+/* For Error Messages */
+.form-field small{
+    display: none;
+}
+
+.form-field.error small{
+    color: #e74c3c;
+    display: block;
+    padding-left: 15px;
+}
+
+.form-field.error input{
+    border-color: #e74c3c;
+}
+
+.form-field.error textarea{
+    border-color: #e74c3c;
+}
+
+.checker small{
+    display: none;
+}
+
+.checker.error small{
+    color: #e74c3c;
+    display: block;
+    padding-left: 15px;
+    border-color: #e74c3c;
+}
+/* BE Modifications - ending point */

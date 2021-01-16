@@ -5,38 +5,86 @@ body{
     min-height: 100vh;
     background-size: cover;
     background-position: center;
-}
-.modal input{
-    border-radius: 50px;
-}
-.modal .btn{
-    border-radius: 50px;
-    padding-left: 50px;
-    padding-right: 50px;
+    border-radius: 30px;
 }
 
-.modal .forget-link{
-    color: rgb(97, 97, 97);
-    font-weight: bold;
+/* Navbar Style */
+.navbar{
+    padding: 5px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 36px;
+    letter-spacing: .8px;
+    background: rgba(59, 59, 59, 0.6)!important;
+}
+nav .btn{
+    color: #ffba08;
+    border-radius: 50px;
     text-decoration: none;
 }
-.modal .forget-link:hover{
-    color: rgb(24, 121, 121);
-    font-weight: bold;
-    text-decoration: none;
+nav input{
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 0 10px 0 10px;
 }
-
-.modal-body{
-    margin-left: 2em;
-    margin-right: 1.5em;
+.nav-link{
+    transition: .5s;
 }
-
-/* BE Modifications - starting point */
+.nav-link:hover{
+    transform: scale(1.1);
+}
+.dropdown-item:hover{
+    background-color: white;
+    color: #ffba08;
+}
 .separator{
     align-self: center;
     border-right: 2px solid rgb(163, 159, 159);
     margin-right: 10px;
     height: 20px;
+}
+/* Navbar Style - End */
+
+.card{
+    border-radius: 30px;
+    background: rgb(243, 243, 243);
+}
+.card input{
+    border-radius: 50px;
+}
+.card .btn{
+    color:white;
+    border-radius: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.card .btn:hover{
+    color: white!important;
+}
+.card .btn.btn-outline-warning{
+    color: #ffba08;
+}
+
+.card .forget-link{
+    color: rgb(97, 97, 97);
+    font-weight: bold;
+    text-decoration: none;
+}
+.card .forget-link:hover{
+    color: #ffba08;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+/* BE Modifications - starting point */
+.separator{
+    align-self: center;
+    border-right: 1px solid rgb(163, 159, 159);
+    margin-right: 5px;
+    height: 30px;
 }
 
 /* For Error Messages */
@@ -68,61 +116,37 @@ body{
     padding-left: 15px;
     border-color: #e74c3c;
 }
-img {
-    vertical-align: middle;
-    border-style: none;
-    max-height: 60vh;
-    min-height: 60vh;
-    max-width: 100%;
-    background-size: cover;
-    margin: auto;
-    padding: 10px;
-}
-.img-left{
-    width: 55%;
-    background: url(../images/film_background1.jpg);
-    background-size: cover;
-}
 /* BE Modifications - ending point */
 
-/* services style */
-.services{
-    padding: 30px 0;
-    text-align: center;
-}
-.services h1{
-    font-size: 30px;
-    margin-bottom: 35px;
-    color:white;
-}
-.services .card{
-    border: 1px solid rgb(116, 112, 112);
-}
-.services .card-body{
-    padding: 1rem .9rem;
-    background-color: white;
-}
-.services .card-body .card-title{
-    color: rgb(51, 51, 51);
-    font-weight: 700;
-}
-.services .btn-success{
-    border-radius: 50px;
-    border-color: white;
+.img-left{
+    margin: 5px;
+    width: 55%;
+    background: url(../images/film_background4.jpg);
+    background-size: cover;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
-/* about us style */
-.aboutus{
-    padding: 45px 0;
-    text-align: center;
-    background-color: white;
+/* Footer style */
+.footer{
+    background: rgb(44, 44, 44); 
+    position: static;
+    bottom: 0;
+    width: 100%; 
+    padding: 10px;
+    margin-top: 2rem;
+    color: rgb(78, 78, 78);
+    cursor: none;
 }
-.aboutus h1{
-    font-size: 30px;
-    margin-bottom: 35px;
-    color:black;
+.footer p{
+    font-size: 14px;
+    color: #f1e6c8;
+    margin: 5px 0 0 0;
 }
-.aboutus p{
-    font-size: 16px;
-    color: black;
+.footer a{
+    font-size: 14px;
+    color: #ffffff;
+    padding: 10px 10px;
 }

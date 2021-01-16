@@ -4,7 +4,7 @@
         <div class="row px-3">
             <div class="col-lg-10 col-xl-9 card flex-row mx-auto my-5">
                 <div class="card-body">
-                    <h1 class="title text-center mb-2 mt-5 text-info">Sign Up</h1>
+                    <h1 class="title text-center mb-2 mt-5 text-warning">Sign Up</h1>
                     <br>
                     <p class="title text-left mt-2 mb-4 text-secondary text-dark"> <b>Account Information</b> </p>
                     <form name="registerForm" id="registerForm" class="contact-form row" action="/register"
@@ -87,9 +87,9 @@
                         </div>
 
                         <div class="row mx-auto my-4">
-                            <button type="submit" class="btn btn-info btn-lg mr-3 mb-4"
+                            <button type="submit" class="btn btn-warning btn-lg mr-3 mb-4"
                                 onclick="return registerValidation()">Register</button>
-                            <button class="btn btn-outline-info btn-lg mr-3 mb-4" type="reset"
+                            <button class="btn btn-outline-warning btn-lg mr-3 mb-4" type="reset"
                                 onclick="return removeError()">C l e a r</button>
                         </div>
                     </form>
@@ -97,7 +97,7 @@
             </div>
         </div>
     </div>
-
+    <%- include ('./partials/footer.ejs') %>
     <script>
         var usernameList = "<%= usernames %>";
         var emailList = "<%= emails %>";

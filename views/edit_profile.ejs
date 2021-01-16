@@ -1,0 +1,99 @@
+<%- include ('./partials/navbar.ejs') %>
+    <div class="edit-profile">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-xl-9 card flex-row mx-auto my-5 px-0">
+                    <div class="card-body">
+                        <h1 class="title text-center mb-2 mt-3 text-warning">Edit Profile</h1>
+                        <br>
+                        <p class="title text-left mt-2 mb-4 text-secondary text-dark"> <b>Account Information</b> </p>
+                        <form name="profile" id="profile" class="contact-form row"
+                            action="/account/<%= user.Username %>/edit_profile" method="POST">
+                            <div class="row mx-auto mb-5">
+                                <div class="form-field col mx-3">
+                                    <p for="userame">Username</p>
+                                    <!-- value=" // typeof user.Username != 'undefined' ? user.Username : '' " --->
+                                    <input type="text" class="form-control" id="username" name="username" maxlength="50"
+                                        value="<%= user.Username %>" onchange="setSuccess(event.target)">
+                                    <small>Error Message</small>
+                                </div>
+                                <div class="form-field col mx-3">
+                                    <p for="email">Email Address</p>
+                                    <input type="text" class="form-control" id="email" name="email" maxlength="50"
+                                        value="<%= user.Email %>" onchange="setSuccess(event.target)">
+                                    <small>Error Message</small>
+                                </div>
+                                <div class="form-field col mx-3">
+                                    <p for="number">Contact No.</p>
+                                    <input type="text" class="form-control" id="contact" name="contact" maxlength="13"
+                                        value="<%= user.Contact %>" onchange="setSuccess(event.target)">
+                                    <small>Error Message</small>
+                                </div>
+                            </div>
+                            <div class="row mx-auto mb-4">
+                                <div class="col mx-3">
+                                    <p for="oldPasswordd">Old Password</p>
+                                    <input type="text" class="form-control" id="oldPassword" name="oldPassword"
+                                        maxlength="60" placeholder="********" value="********" disabled>
+                                </div>
+                                <div class="form-field col mx-3">
+                                    <p for="newPassword">New Password</p>
+                                    <input type="password" class="form-control" id="newPassword" name="newPassword" value=""
+                                        maxlength="60" onchange="setSuccess(event.target)">
+                                    <small>Error Message</small>
+                                </div>
+                                <div class="form-field col mx-3">
+                                    <p for="verifyPassword">Verify Password</p>
+                                    <input type="password" class="form-control" id="verifyPassword" value=""
+                                        name="verifyPassword" maxlength="60" onchange="setSuccess(event.target)">
+                                    <small>Error Message</small>
+                                </div>
+                            </div>
+                            <p class="title text-left col-lg-12 mt-3 mb-5 text-secondary text-dark"> <b>User
+                                    Information</b>
+                            </p>
+                            <div class="form-field col-lg-6 mb-4">
+                                <p for="firstname">First Name</p>
+                                <input type="text" class="form-control" id="firstname" name="firstname" maxlength="70"
+                                    value="<%= user.Fname %>" onchange="setSuccess(event.target)">
+                                <small>Error Message</small>
+                            </div>
+                            <div class="form-field col-lg-6 mb-4">
+                                <p for="lastname">Last Name</p>
+                                <input type="lastname" class="form-control" id="lastname" name="lastname" maxlength="60"
+                                    value="<%= user.Lname %>" onchange="setSuccess(event.target)">
+                                <small>Error Message</small>
+                            </div>
+                            <div class="form-field col-lg-6 mb-4">
+                                <p for="birthdate">Birthdate</p>
+                                <input type="text" class="form-control textbox-n" id="birthdate" name="birthdate"
+                                    placeholder="dd/mm/yyyy" onfocus="(this.type='date')" onblur="(this.type='text')"
+                                    onchange="setSuccess(event.target)" value="<%= birthday %>">
+                                <small>Error Message</small>
+                            </div>
+                            <div class="form-field col-lg-6 mb-4">
+                                <p for="inputAddress">Address</p>
+                                <textarea class="form-control m-0" id="address" name="address"
+                                    placeholder="No. St., Brgy, City, Province" rows="1"
+                                    onchange="setSuccess(event.target)"><%= user.Address %></textarea>
+                                <small>Error Message</small>
+                            </div>
+
+                            <div class="row mx-auto my-4">
+                                <button type="submit" class="btn btn-warning btn-lg mr-3"
+                                    onclick="return editProfileValidation()">S A V E</button>
+                                <a class="btn btn-outline-warning btn-lg mr-3"
+                                    href="/account/<%=user.Username%>">CANCEL</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include ('./partials/footer.ejs') %>
+    <script>
+        var usernameList = "<%= usernames %>"
+        var emailList = "<%= emails %>"
+    </script>
+    <script src="/js/edit_profile.js"></script>
