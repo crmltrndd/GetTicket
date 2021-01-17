@@ -260,7 +260,7 @@ function toStringGenre(movieGenre){
             }
         })
     } else {
-        movieGenres = movieGenre
+        stringMovieGenre = movieGenre
     }
     return stringMovieGenre.trim()
 }

@@ -2,12 +2,12 @@ const express = require('express')
 const router = express.Router()
 
 // Import Controllers 
-const { getHome } = require('../controller/index_controller')
+const { getHome, getLogout } = require('../controller/index_controller')
 
 // Import Middleware
-const { checkUser } = require('../middleware/user')
+const { checkUser, isAuthorized } = require('../middleware/user')
 
-// Home Route
-router.get('/', checkUser, getHome)
+router.get('/', checkUser, getHome)                                 // Home Route
+router.get('/logout', checkUser, isAuthorized, getLogout)           // Logout Route
 
 module.exports = router;

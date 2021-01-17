@@ -1,0 +1,152 @@
+<%- include ('../partials/navbar.ejs') %>
+<!-- Format Birthday -->
+<% const months = ["JAN", "FEB", "MAR","APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"] %> 
+<% let birthdate = months[user.Birthday.getMonth()] + " " + user.Birthday.getDate() + " " + user.Birthday.getFullYear() %> 
+
+<div class="myaccount mt-5">
+    <div class="container">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <% if (active == "profile") { %>
+                    <a class="nav-link show active" id="myaccount-tab" href="/account/<%= user.Username %>/profile" role="tab">My Account</a>
+                <% } else { %> 
+                    <a class="nav-link" id="myaccount-tab" href="/account/<%= user.Username %>/profile" role="tab">My Account</a>
+                <% } %>
+            </li>
+            <li class="nav-item">
+                <% if (active == "transactions") { %>
+                    <a class="nav-link show active" id="transactions-tab"  href="/account/<%= user.Username %>/transactions" role="tab">Transaction History</a>
+                <% } else { %> 
+                    <a class="nav-link" id="transactions-tab"  href="/account/<%= user.Username %>/transactions" role="tab">Transaction History</a>
+                <% } %>
+            </li>
+        </ul>
+
+        <!-- Tabs Content -->
+        <div class="tab-content mb-5" id="myTabContent">
+
+            <!-- My Account -->
+            <% if (active == "profile") { %>
+                <div class="tab-pane fade show active" id="myaccount" role="tabpanel">
+            <% } else { %> 
+                <div class="tab-pane fade" id="myaccount" role="tabpanel">
+            <% } %>
+                    <div class="row text-right">
+                        <div class="col my-auto">
+                            <div class="row mx-auto">
+                                <div class="col">
+                                    <img src="/images/admin_avatar.jpg" class="rounded float-left" style="height: 150px">
+                                </div>
+                            </div>
+                            <div class="row md-auto mt-4">
+                                <div class="col text-left">
+                                    <p class="text-muted">Welcome</p>
+                                    <h3 class="font-weight-bold">
+                                        <%=user.Fname%> 
+                                        <%=user.Lname%>
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <ul class="nav mb-3 mt-3" id="pills-tab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="pills-accountInfo-tab" data-toggle="pill" href="#accountInfo" role="tab" aria-controls="pills-accountInfo" aria-selected="true">
+                                    Account Information</a>
+                                </li>
+                                <div class="d-none d-lg-block separator"></div>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="pills-userInfo-tab" data-toggle="pill" href="#userInfo" role="tab" aria-controls="pills-userInfo" aria-selected="false">
+                                    User Information</a>
+                                </li>
+                                <div class="d-none d-lg-block separator"></div>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/account/<%=user.Username%>/edit_profile">Edit Profile</a>
+                                </li>
+                            </ul>
+                            
+                            <div class="tab-content mt-5" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="accountInfo" role="tabpanel" aria-labelledby="pills-home-tab">
+                                    <div class="row text-left">
+                                        <div class="col">
+                                            <p class="text-muted">Username</p>
+                                            <h6 class="font-weight-bold"><%=user.Username%></h6>
+                                        </div>
+                                        <div class="col">
+                                            <p class="text-muted">Email address</p>
+                                            <h6 class="font-weight-bold"><%=user.Email%></h6>
+                                        </div>
+                                    </div>
+                                    <div class="row text-left mt-5">
+                                        <div class="col">
+                                            <p class="text-muted">Contact No.</p>
+                                            <h6 class="font-weight-bold"><%=user.Contact%></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="userInfo" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                    <div class="row text-left">
+                                        <div class="col">
+                                            <p class="text-muted">First Name</p>
+                                            <h6 class="font-weight-bold"><%=user.Fname%></h6>
+                                        </div>
+                                        <div class="col">
+                                            <p class="text-muted">Last Name</p>
+                                            <h6 class="font-weight-bold"><%=user.Lname%></h6>
+                                        </div>
+                                    </div>
+                                    <div class="row text-left mt-5">
+                                        <div class="col">
+                                            <p class="text-muted">Birthday</p>
+                                            <h6 class="font-weight-bold"><%=birthdate%></h6>
+                                        </div>
+                                        <div class="col">
+                                            <p class="text-muted">Address</p>
+                                            <h6 class="font-weight-bold"><%=user.Address%></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <!-- Transactions -->
+            <% if (active == "transactions") { %>
+                <div class="tab-pane fade show active" id="transactions" role="tabpanel">
+            <% } else { %> 
+                <div class="tab-pane fade" id="transactions" role="tabpanel">
+            <% } %>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Date</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Showtime</th>
+                                <th scope="col">Tickets</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">11-02-2020</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">11-02-2020</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            
+        </div>
+    </div>
+</div>
+<%- include ('../partials/footer.ejs') %>

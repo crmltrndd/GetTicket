@@ -1,0 +1,37 @@
+<%- include ('../partials/navbar.ejs') %>
+<div class="cusser">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-9 card flex-row mx-auto my-5 px-0">
+                <div class="card-body">
+                    <p class="title text-left col-lg-12 mt-5 text-primary"> <b>WE'D LOVE TO HERE FROM YOU</b>
+                        <hr class="my-5">
+                    <form class="form-box px-1" name="customerForm" id="customerForm" action="" method="">
+                        </p>
+                        <div>
+                            <input type="name" class="form-control my-3" placeholder="Full Name" id="fullname"
+                                name="fullname" maxlength="70">
+                        </div>
+                        <div>
+                            <input type="email" class="form-control my-3" placeholder="Email Address" id="email"
+                                name="email" maxlength="60">
+                        </div>
+                        <div>
+                            <input type="text" class="form-control my-3" placeholder="Subject" id="subject"
+                                name="subject">
+                        </div>
+                        <div>
+                            <textarea class="form-control my-3" id="message" placeholder="Message" name="message"
+                                rows="3"></textarea>
+                        </div>
+
+                        <div class="row my-4">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block mx-3">SUBMIT</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include ('../partials/footer.ejs') %>

@@ -1,24 +1,4 @@
-/* contact us style */
-.contactUs{
-    border-radius: 30px;
-}
-.contactUs h1{
-    font-size: 30px;
-    margin-bottom: 35px;
-    color: tomato;
-}
-.contactUs h5{
-    color: rgb(56, 56, 56);
-    font-weight: bold;
-    font-size: 50px;
-}
-.contactUs p{
-    color: black;
-    font-size: 16px;
-}
-
 body{
-    background-color: #6ca3df !important;
     background-image: url(../images/grdnt_BG5.png);
     position: relative;
     min-height: 100vh;
@@ -57,9 +37,29 @@ nav .btn{
     height: 20px;
 }
 
+/* contact us style */
+.contactUs{
+    border-radius: 30px;
+}
+.contactUs h1{
+    font-size: 30px;
+    margin-bottom: 35px;
+    color: tomato;
+}
+.contactUs h5{
+    color: rgb(56, 56, 56);
+    font-weight: bold;
+    font-size: 50px;
+}
+.contactUs p{
+    color: black;
+    font-size: 16px;
+}
+
+
 /* Footer style */
 .footer{
-    background: rgb(44, 44, 44); 
+    background: rgb(19, 19, 19); 
     position: static;
     bottom: 0;
     width: 100%; 
@@ -80,10 +80,7 @@ nav .btn{
 }
 @media only screen and (min-width: 1024px) and (min-height: 800px) {
     .footer{
-        background: #333333;
-        color: aliceblue;
         position: fixed;
         bottom: 0px;
     }
-    /*footer {margin-top: 230px;}*/
 }

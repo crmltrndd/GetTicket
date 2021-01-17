@@ -5,9 +5,9 @@ const router = express.Router()
 const { getLogin, postLogin } = require('../controller/login_controller')
 
 // Import Middleware
-const { isAuthorized, checkUser } = require('../middleware/user')
+const { isNotAuthorized, checkUser } = require('../middleware/user')
 
-router.get('/', checkUser, getLogin)        // Login Route
-router.post('/', checkUser, postLogin)      // Login Process Handler
+router.get('/', checkUser, isNotAuthorized, getLogin)        // Login Route
+router.post('/', checkUser, isNotAuthorized, postLogin)      // Login Process Handler
 
 module.exports = router;

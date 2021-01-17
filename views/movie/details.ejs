@@ -1,0 +1,66 @@
+<%- include ('../partials/navbar.ejs') %>
+    <!-- movie details -->
+    <div class="card mx-5 my-5">
+        <div class="card-img-top">
+            <img class="mx-auto" alt=<%= movie.Title %> src="http://localhost:5000/images/movies/<%=movie.Movie_Poster%>" height="500px">
+        </div>
+        
+        <div class="card-body">
+            <h5 class="card-title">
+                <%= movie.Title %>
+            </h5>
+            <!-- split time & convert to number -->
+            <% let duration=movie.Duration.split(":").map(i=>Number(i)) %>
+            <p class="card-text">
+                <%= duration[0]> 1 ? duration[0]+"hrs " : duration[0] === 1 ? duration[0]+"hr " : ""%> 
+                <%= duration[1]> 1 ? duration[1]+"mins" : duration[1] === 1 ? duration[1]+"min" : duration[1] === 0 && duration[0] === 0 ? "Not Applicable" : ""%>
+            </p>
+            <p class="card-text"><%= movie.Genre %></p>
+        </div>
+    </div>
+
+    <div class="details mx-5">
+        <div class="container">
+            <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link" id="schedule-tab" data-toggle="tab" href="#sched" role="tab"
+                        aria-controls="schedule" aria-selected="true">Schedule</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="about-tab" data-toggle="tab" href="#about" role="tab" aria-controls="about"
+                        aria-selected="false">About Movie</a>
+                </li>
+            </ul>
+            <div class="tab-content mx-5 my-5" id="myTabContent">
+                <div class="tab-pane fade show active" id="sched" role="tabpanel" aria-labelledby="">
+                    <h2 class="text-left">Date: </h2>
+                    <button type="button" class="btn btn-outline-dark btn-lg mr-5 my-3">Nov 21</button>
+                    <button type="button" class="btn btn-outline-dark btn-lg mr-5 my-3">Nov 22</button>
+                    <button type="button" class="btn btn-outline-dark btn-lg mr-5 my-3">Nov 23</button>
+                    <button type="button" class="btn btn-danger btn-lg mr-5 my-3"><i
+                            class="far fa-calendar-plus"></i></button>
+                    <hr class="my-4">
+                    <h2 class="text-left my-4">Manila </h2>
+                    <button type="button" class="btn btn-outline-dark btn-lg mr-5 mt-3">10:00 am</button>
+                    <button type="button" class="btn btn-outline-dark btn-lg mr-5 mt-3">02:00 pm</button>
+                    <button type="button" class="btn btn-outline-dark btn-lg mr-5 mt-3">04:00 pm</button>
+                    <hr class="my-4">
+                    <h2 class="text-left my-4">Taguig </h2>
+                    <button type="button" class="btn btn-outline-dark btn-lg mr-5 mt-3">10:00 am</button>
+                    <button type="button" class="btn btn-outline-dark btn-lg mr-5 mt-3">10:00 am</button>
+                    <button type="button" class="btn btn-outline-dark btn-lg mr-5 mt-3">10:00 am</button>
+                    <hr class="my-4">
+                    <h2 class="text-left my-4">Seat Selection </h2>
+                    <a href="/" type="button" class="btn btn-dark btn-lg btn-block mr-5 mt-3">Select Seat(s)</a>
+                </div>
+                <div class="tab-pane" id="about" role="tabpanel" aria-labelledby="">
+                    <h2 class="text-left mb-5">Story: </h2>
+                    <h2 class="text-left mb-3">Director:</h2>
+                    <h2 class="text-left mb-3">Cast: </h2>
+                    <h2 class="text-left mb-3">Released Date:</h2>
+                    <hr class="my-4">
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include ('../partials/footer.ejs') %>

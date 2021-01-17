@@ -1,5 +1,4 @@
 body{
-    background-color: #6ca3df !important;
     background-image: url(../images/grdnt_BG5.png);
     position: relative;
     min-height: 100vh;
@@ -131,7 +130,7 @@ nav input{
 
 /* Footer style */
 .footer{
-    background: rgb(44, 44, 44); 
+    background: rgb(19, 19, 19); 
     position: static;
     bottom: 0;
     width: 100%; 
@@ -149,4 +148,10 @@ nav input{
     font-size: 14px;
     color: #ffffff;
     padding: 10px 10px;
+}
+@media only screen and (min-width: 1024px) and (min-height: 900px) {
+    .footer{
+        position: fixed;
+        bottom: 0px;
+    }
 }

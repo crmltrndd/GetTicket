@@ -46,7 +46,7 @@ exports.postForgotPassword = (req, res) => {
                 res.redirect('/forgot_password')
             })
         } else {
-            req.flash('info', 'An email is already been sent to your account. Please check it for reset password process.')
+            req.flash('error', 'No account match our record.')
             res.redirect('/forgot_password')
         }
     })

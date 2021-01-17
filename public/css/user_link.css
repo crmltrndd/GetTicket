@@ -1,0 +1,162 @@
+body{
+    background-image: url(../images/grdnt_BG5.png);
+    position: relative;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Navbar Style */
+.navbar{
+    padding: 5px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 36px;
+    letter-spacing: .8px;
+    background: rgba(59, 59, 59, 0.6)!important;
+}
+nav .btn{
+    color: #ffba08;
+    border-radius: 50px;
+    text-decoration: none;
+}
+.nav-link{
+    transition: .5s;
+}
+.nav-link:hover{
+    transform: scale(1.03);
+}
+.dropdown-item:hover{
+    background-color: white;
+    color: #ffba08;
+}
+.separator{
+    align-self: center;
+    border-right: 2px solid rgb(163, 159, 159);
+    margin-right: 10px;
+    height: 20px;
+}
+/* Navbar Style - End */
+
+
+/* Time Square Mall Style */
+h1{
+    color: gray;
+    font-size: 40px;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.text-center{
+    color: rgba(128, 128, 128, 0.884);
+    font-size: 20px;
+    text-align: center;
+    padding: 0 50px;
+}
+.jumbotron{
+    background-color: rgb(216, 229, 252);
+    margin: 3% 5%;
+    padding: 15px 20px 30px;
+}
+h2{
+    color: rgb(69, 69, 201);
+    font-size: 40px;
+    text-align: center;
+}
+p{
+    color: rgb(83, 80, 80);
+    font-size: 18px;
+    text-align: center;
+    padding: 0 50px;
+}
+
+/* Costumer Service Style */
+.cusser .card{
+    border-radius: 30px;
+    background: rgb(255, 255, 255);
+}
+.cusser input{
+    border-radius: 50px;
+}
+.cusser .btn-primary{
+    background-color: orangered;
+    color:white;
+    border-radius: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.cusser .btn:hover{
+    background-color: rgb(235, 127, 88);
+    color: rgb(255, 93, 35);
+}
+
+/* Disclaimer Style */
+.disclaimer{
+    background-color: rgb(42, 42, 209);
+}
+.disclaimer h1{
+    font-size: 22px;
+    color: white;
+}
+.disclaimer p{
+    font-size: 14px;
+    color: rgb(216, 216, 216);
+}
+
+/* Terms Style */
+.terms{
+    background-color: rgb(42, 42, 209);
+}
+.terms h1{
+    font-size: 22px;
+    color: white;
+}
+.terms h2{
+    font-size: 22px;
+    color: rgb(42, 42, 209);
+}
+.terms p{
+    font-size: 14px;
+    color: rgb(216, 216, 216);
+}
+
+/* Privacy Policy Style */
+.policy{
+    background-color: rgb(42, 42, 209);
+}
+.policy h1{
+    font-size: 22px;
+    color: white;
+}
+.policy p{
+    font-size: 14px;
+    color: rgb(216, 216, 216);
+}
+
+/* Footer style */
+.footer{
+    background: rgb(19, 19, 19); 
+    position: static;
+    bottom: 0;
+    width: 100%; 
+    padding: 10px;
+    margin-top: 50px;
+    color: rgb(78, 78, 78);
+    cursor: none;
+}
+.footer p{
+    font-size: 14px;
+    color: #f1e6c8;
+    margin: 5px 0 0 0;
+}
+.footer a{
+    font-size: 14px;
+    color: #ffffff;
+    padding: 10px 10px;
+}
+@media only screen and (min-height: 900px) {
+    .footer{
+        position: fixed;
+        bottom: 0px;
+    }
+}

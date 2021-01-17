@@ -26,7 +26,7 @@
                 <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
                     <a class="nav-item nav-link active" id="nowShowingTab" data-toggle="tab" href="#nowShowing"
                         role="tab" aria-controls="nav-home" aria-selected="true">NOW SHOWING</a>
-                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#comingSoon" role="tab"
+                    <a class="nav-item nav-link" id="cominSoonTabTab" data-toggle="tab" href="#comingSoon" role="tab"
                         aria-controls="nav-profile" aria-selected="false">COMING SOON</a>
                 </div>
             </nav>
@@ -52,7 +52,7 @@
                                                         <%= duration[1] > 1 ? duration[1]+"mins" : duration[1] === 1 ? duration[1]+"min" : duration[1] === 0 && duration[0] === 0 ? "Not Applicable" : ""%>
                                                     </div>
                                                     <div class="text-center card-text mb-2"><%=movie.Genre%></div>
-                                                    <a href="#" class="btn btn-warning btn-lg px-5">Buy Ticket</a>
+                                                    <a href="/movie/<%= movie.Title %>" class="btn btn-warning btn-lg px-5">Buy Ticket</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -82,7 +82,7 @@
                                                         <%= duration[1] > 1 ? duration[1]+"mins" : duration[1] === 1 ? duration[1]+"min" : duration[1] === 0 && duration[0] === 0 ? "Not Applicable" : ""%>
                                                     </div>
                                                     <div class="text-center card-text mb-2"><%=movie.Genre%></div>
-                                                    <a href="#" class="btn btn-warning btn-lg px-5">Buy Ticket</a>
+                                                    <a href="/movie/<%= movie.Title %>" class="btn btn-warning btn-lg px-5">Buy Ticket</a>
                                                 </div>
                                             </div>
                                         </div>

@@ -5,9 +5,9 @@ const router = express.Router()
 const { getRegister, postRegister } = require('../controller/register_controller')
 
 // Import Middleware
-const { isAuthorized, checkUser } = require('../middleware/user')
+const { isNotAuthorized,  checkUser } = require('../middleware/user')
 
-router.get('/', checkUser, getRegister)         // Register Route
-router.post('/', checkUser, postRegister)       // Register Process Handler
+router.get('/', checkUser, isNotAuthorized, getRegister)         // Register Route
+router.post('/', checkUser, isNotAuthorized, postRegister)       // Register Process Handler
 
 module.exports = router;

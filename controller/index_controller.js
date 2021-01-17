@@ -6,7 +6,6 @@ exports.getHome = (req, res) => {
         if (error) {
             console.error(error)
         } else {
-            console.log(results)
             res.render('index', {
                 title: 'GetTicket',
                 css: 'user_home.css',
@@ -14,4 +13,10 @@ exports.getHome = (req, res) => {
             })
         }
     })
+}
+
+// Logout User on GET
+exports.getLogout = (req, res) => {
+    res.cookie('access', '', {maxAge: 1} )
+    res.redirect('/')
 }

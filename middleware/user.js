@@ -13,7 +13,7 @@ exports.isAuthorized = (req, res, next) => {
                 req.flash('error', 'Please log in')
                 res.redirect('/login')
             } else {
-                console.log(decodedToken)
+                //console.log(decodedToken)
                 next()
             }
         })
@@ -47,5 +47,22 @@ exports.checkUser = (req, res, next) => {
     } else {
         res.locals.user = null
         next()
+    }
+}
+
+// To check if the user is not logged in
+exports.isNotAuthorized = (req, res, next) => {
+    const token = req.cookies.access
+    // check if access token exist and verified
+    if (token) {
+        jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (error, decodedToken) => {
+            if (error) {
+                return next()
+            } else {
+                return res.redirect('/')
+            }
+        })
+    } else {
+        return next()
     }
 }

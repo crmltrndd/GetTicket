@@ -1,4 +1,4 @@
-<%- include ('./partials/navbar.ejs') %>
+<%- include ('../partials/navbar.ejs') %>
     <div class="edit-profile">
         <div class="container">
             <div class="row">
@@ -83,7 +83,7 @@
                                 <button type="submit" class="btn btn-warning btn-lg mr-3"
                                     onclick="return editProfileValidation()">S A V E</button>
                                 <a class="btn btn-outline-warning btn-lg mr-3"
-                                    href="/account/<%=user.Username%>">CANCEL</a>
+                                    href="/account/<%=user.Username%>/profile">CANCEL</a>
                             </div>
                         </form>
                     </div>
@@ -91,7 +91,7 @@
             </div>
         </div>
     </div>
-    <%- include ('./partials/footer.ejs') %>
+    <%- include ('../partials/footer.ejs') %>
     <script>
         var usernameList = "<%= usernames %>"
         var emailList = "<%= emails %>"

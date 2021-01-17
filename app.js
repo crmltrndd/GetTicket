@@ -51,16 +51,21 @@ app.use(passport.session())
 app.use(methodOverride('_method'))
 
 // Define Routes 
-app.use('/', require('./routes/index'))
+app.use('/time_square_mall', require('./routes/time_square_mall'))
+app.use('/terms', require('./routes/terms'))
 app.use('/register', require('./routes/register'))
-app.use('/login', require('./routes/login'))
-app.use('/logout', require('./routes/logout'))
-app.use('/forgot_password', require('./routes/forgot_password'))
 app.use('/reset_password', require('./routes/reset_password'))
+app.use('/privacy_policy', require('./routes/privacy_policy'))
+app.use('/movie', require('./routes/movie'))
+app.use('/login', require('./routes/login'))
+app.use('/link', require('./routes/link'))
+app.use('/forgot_password', require('./routes/forgot_password'))
+app.use('/disclaimer', require('./routes/disclaimer'))
+app.use('/customer_service', require('./routes/customer_service'))
 app.use('/contact_us', require('./routes/contact_us'))
 app.use('/account', require('./routes/account'))
-//app.use('/cart', require('./routes/cart'))
 app.use('/admin', require('./routes/admin'))
+app.use('/', require('./routes/index'))
 app.use((req, res) => {
     res.status(404).render('404', {
         title: 'Page not found',
