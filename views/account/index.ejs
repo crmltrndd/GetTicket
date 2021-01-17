@@ -1,11 +1,11 @@
 <%- include ('../partials/navbar.ejs') %>
 <!-- Format Birthday -->
-<% const months = ["JAN", "FEB", "MAR","APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"] %> 
+<% const months = ["January", "February", "March","April", "May", "June", "July", "Aug", "September", "October", "November", "December"] %> 
 <% let birthdate = months[user.Birthday.getMonth()] + " " + user.Birthday.getDate() + " " + user.Birthday.getFullYear() %> 
 
-<div class="myaccount mt-5">
-    <div class="container">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
+<div class="myaccount mt-5 mx-5">
+    <div class="container py-3">
+        <ul class="nav nav-tabs pt-3" id="myTab" role="tablist">
             <li class="nav-item">
                 <% if (active == "profile") { %>
                     <a class="nav-link show active" id="myaccount-tab" href="/account/<%= user.Username %>/profile" role="tab">My Account</a>

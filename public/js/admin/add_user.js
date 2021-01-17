@@ -42,9 +42,10 @@ function userValidation() {
     }
 
     // Check Email Address
+    adminUserForm.inputEmail.value = adminUserForm.inputEmail.value.trim()
     if (adminUserForm.inputEmail.value == '') {
         isClear = setError(inputEmail, 'This field is required')
-    } else if (!adminUserForm.inputEmail.value.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {
+    } else if (!adminUserForm.inputEmail.value.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {     // regex: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         isClear = setError(inputEmail, 'Please input a valid email address')
     } else {
         setSuccess(inputEmail)

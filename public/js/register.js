@@ -17,9 +17,11 @@ function registerValidation() {
     }
 
     // Check email
+    registerForm.email.value = registerForm.email.value.trim()
+    console.log(registerForm.email.value)
     if (registerForm.email.value == '') {
         isClear = setError(email, 'Email Address is required')
-    } else if (!registerForm.email.value.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {
+    } else if (!registerForm.email.value.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {       // regex: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         isClear = setError(email, 'Please input a valid email address')
     } else if (emailList.includes(registerForm.email.value)) {
         isClear = setError(email, 'The email is already in use')

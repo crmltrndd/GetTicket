@@ -154,9 +154,3 @@ p{
     color: #ffffff;
     padding: 10px 10px;
 }
-@media only screen and (min-height: 900px) {
-    .footer{
-        position: fixed;
-        bottom: 0px;
-    }
-}
