@@ -16,6 +16,13 @@
         </div>
     </div>
     <!-- Banner End -->
+    
+    <!-- Search start -->
+    <div class="search-box mx-auto mt-5">
+        <input type="search" name="search" id="search" maxlength="50" placeholder="Search..." aria-label="Search">
+        <i class="fa fa-search fa-2x" aria-hidden="true"></i>
+    </div>    
+    <!-- Search end -->
 
     <!-- Tabs -->
     <section id="tabs">
@@ -42,7 +49,7 @@
                                     <% if (movie.Status === "Now Showing") { %>
                                         <!-- split time & convert to number -->
                                         <% let duration = movie.Duration.split(":").map(i=>Number(i)) %>
-                                        <div class="col-lg-4 col-m-4 col-12 ml-0 my-3">
+                                        <div class="col-lg-4 col-m-4 col-12 ml-0 my-3 searchStart">
                                             <div class="card">
                                                 <img class="card-img-top" src="http://localhost:5000/images/movies/<%=movie.Movie_Poster%>">
                                                 <div class="card-body text-dark">
@@ -72,7 +79,7 @@
                                     <% if (movie.Status === "Coming Soon") { %>
                                         <!-- split time & convert to number -->
                                         <% let duration = movie.Duration.split(":").map(i=>Number(i)) %>
-                                        <div class="col-lg-4 col-m-4 col-12 ml-0 my-3">
+                                        <div class="col-lg-4 col-m-4 col-12 ml-0 my-3 searchStart">
                                             <div class="card">
                                                 <img class="card-img-top" src="http://localhost:5000/images/movies/<%=movie.Movie_Poster%>">
                                                 <div class="card-body text-dark">
@@ -98,5 +105,5 @@
     </section>
     <!-- Tabs End -->
 
-
     <%- include ('./partials/footer.ejs') %>
+    <script src="/js/index.js"></script>
