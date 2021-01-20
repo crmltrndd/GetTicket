@@ -6,9 +6,8 @@
             <%- include ('../../partials/messages/error_message.ejs') %>
                 <form role="form" id="movieForm" name="movieForm" class="contact-form row"
                     action="/admin/movies/<%=movieID%>?_method=PUT" method="POST" enctype="multipart/form-data">
-
+                    <!-- List of Genres -->
                     <% var genres = ["Action", "Adventure", "Animation", "Biograhphy", "Comedy", "Crime", "Documentary", "Drama", "Experimental", "Family", "Fantasy", "Historical", "Horror", "Mystery", "Romance", "Satire", "Sci-Fi", "Social", "Thriller", "Urban", "War", "Western"] %>
-                    
                     <div class="form-field col-lg-6 mb-3 pr-4">
                         <label for="movieTitle">Movie Title</label>
                         <input type="text" class="form-control" id="movieTitle" name="movieTitle" maxlength="50"

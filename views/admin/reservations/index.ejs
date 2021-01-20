@@ -29,38 +29,40 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th>ADT144</th>
-                            <td>Mark</td>
-                            <td>Avatar</td>
-                            <td>3</td>
-                            <td>10:30</td>
-                            <td class="option">
-                                <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                                    <option selected>Reserved</option>
-                                    <option value="1">Pending</option>
-                                    <option value="2">Cancelled</option>
-                                </select>
-                            </td>
-                        </tr>
+                        <% if (reservations.length > 0) { %>
+                            <% reservations.forEach( reservation => { %>
+                                <tr>
+                                    <th><%= reservation.Reservation_ID %></th>
+                                    <td><%= reservation.Customer %></td>
+                                    <td><%= reservation.Title %></td>
+                                    <td><%= reservation.Num_Tickets %></td>
+                                    <td><%= reservation.Movie_Showtime.toUTCString() %></td>
+                                    <td class="option">
+                                        <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                                            <% if (reservation.Status == "Reserved") { %> 
+                                                <option value="Reserved" selected>Reserved</option>
+                                                <option value="Pending">Pending</option>
+                                                <option value="Cancelled">Cancelled</option>
+                                            <% } else if (reservation.Status == "Pending") { %> 
+                                                <option value="Reserved">Reserved</option>
+                                                <option value="Pending" selected>Pending</option>
+                                                <option value="Cancelled">Cancelled</option>
+                                            <% } else { %> 
+                                                <option value="Reserved">Reserved</option>
+                                                <option value="Pending">Pending</option>
+                                                <option value="Cancelled" selected>Cancelled</option>
+                                            <% } %>
+                                        </select>
+                                    </td>
+                                </tr>
+                            <% }) %>
+                        <% } else { %>
+                                <tr>
+                                    <th colspan="6"><span class="d-flex justify-content-center">No record to show</span></th>
+                                </tr>
+                        <% } %>
+                        
                     </tbody>
-                    <tbody>
-                        <tr>
-                            <th>ADT155</th>
-                            <td>Masnzon</td>
-                            <td>Aquaman</td>
-                            <td>1</td>
-                            <td>10:30</td>
-                            <td class="option">
-                                <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                                    <option selected>Reserved</option>
-                                    <option value="1">Pending</option>
-                                    <option value="2">Cancelled</option>
-                                </select>
-                            </td>
-                        </tr>
-                    </tbody>
-
                 </table>
             </div>
         </div>

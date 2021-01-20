@@ -10,7 +10,6 @@ const expressLayouts = require('express-ejs-layouts')
 const fileUpload = require('express-fileupload')
 const cookieParser = require('cookie-parser')
 
-
 const app = express()
 
 // Call for Passport Configuration

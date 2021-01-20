@@ -7,16 +7,33 @@
             </div>
             <div class="card-body">
                 <h5 class="card-search">
-                    <button class="btn btn-outline-success">+ Add Hall</button>
-                    <button class="btn btn-outline-success"> Active</button>
-                    <button class="btn btn-outline-danger"> Inactive</button>
+                    <a href="/admin/movies/add_cinema" class="btn btn-outline-success">+ Add Hall</a>
+                            
+                        <% if (status == "All") { %>
+                            <a href="/admin/cinemas" class="btn btn-outline-primary active">All</a>
+                        <% } else { %> 
+                            <a href="/admin/cinemas" class="btn btn-outline-primary">All</a>
+                        <% } %> 
+
+                        <% if (status == "Active") { %>
+                            <a href="/admin/cinemas/active" class="btn btn-outline-success active">Active</a>
+                        <% } else { %> 
+                            <a href="/admin/cinemas/active" class="btn btn-outline-success">Active</a>
+                        <% } %> 
+
+                        <% if (status == "Inactive") { %>
+                            <a href="/admin/cinemas/inactive" class="btn btn-outline-danger active">Inactive</a>
+                        <% } else { %> 
+                            <a href="/admin/cinemas/inactive" class="btn btn-outline-danger">Inactive</a>
+                        <% } %> 
+
                     <form class="form-inline my-2 my-lg-0 float-right">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <input id="searchCinema" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i
                                 class="fa fa-search"></i></button>
                     </form>
                 </h5>
-                <table class="table table-hover table-bordered">
+                <table class="table table-hover table-bordered" id="cinemasTable">
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">Name</th>
@@ -26,39 +43,36 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <% if (cinemas.length > 0) { %>
+                            <% cinemas.forEach( cinema => { %>
+                                <th><%= cinema.Mall_Name %></th>
+                                <td><%= cinema.Num_Cinemahall %></td>
+                                <td class="option">
+                                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                                        <% if (cinema.Status === 1) { %> 
+                                            <option value="1" selected>Active</option>
+                                            <option value="0">Inactive</option>
+                                        <% } else { %> 
+                                            <option value="1">Active</option>
+                                            <option value="0" selected>Inactive</option>
+                                        <% } %>
+                                    </select>
+                                </td>
+                                <td class="table-buttons text-right">
+                                    <button class="btn btn-info"><i class="fa fa-edit"></i></button>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal"
+                                        data-target="#confirmation"><i class="fa fa-trash">
+                                        </i></button>
+                                </td>
+                            </tr>
+                            <% }) %>
+                        <% } else { %>
+                                <tr>
+                                    <th colspan="5"><span class="d-flex justify-content-center">No record to show</span></th>
+                                </tr>
+                        <% } %>
                         <tr>
-                            <th>Manila</th>
-                            <td>5</td>
-                            <td class="option">
-                                <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                                    <option selected>Active</option>
-                                    <option value="1">Inactive</option>
-                                </select>
-                            </td>
-                            <td class="table-buttons text-right">
-                                <button class="btn btn-info"><i class="fa fa-edit"></i></button>
-                                <button type="button" class="btn btn-danger" data-toggle="modal"
-                                    data-target="#confirmation"><i class="fa fa-trash">
-                                    </i></button>
-                            </td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <th>Taguig</th>
-                            <td>6</td>
-                            <td class="option">
-                                <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                                    <option selected>Active</option>
-                                    <option value="1">Inactive</option>
-                                </select>
-                            <td class="table-buttons text-right">
-                                <button class="btn btn-info"><i class="fa fa-edit"></i></button>
-                                <button type="button" class="btn btn-danger" data-toggle="modal"
-                                    data-target="#confirmation"><i class="fa fa-trash">
-                                    </i></button>
-                            </td>
-                        </tr>
+                            
                     </tbody>
                 </table>
             </div>
@@ -87,3 +101,4 @@
     </div>
 </div>
 <%- include ('../partials/footer.ejs') %>
+<script src="/js/admin/cinemas.js"></script>

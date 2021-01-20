@@ -1,3 +1,4 @@
+// For searching movies
 $(document).ready(function () {
     $("#search").on("keyup", function () {
         let value = $(this).val().toLowerCase();

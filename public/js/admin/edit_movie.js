@@ -9,6 +9,7 @@ function movieValidation() {
     console.log(typeof titles)
 
     // Check Movie Title
+    movieForm.movieTitle.value = movieForm.movieTitle.value.trim()
     if (movieForm.movieTitle.value == '') {
         isClear = setError(movieTitle, 'This field is required')
     } else if (titleList.includes(movieForm.movieTitle.value)) {
@@ -18,6 +19,7 @@ function movieValidation() {
     }
 
     // Check Movie Description
+    movieForm.movieDescription.value = movieForm.movieDescription.value.trim()
     if (movieForm.movieDescription.value == '') {
         isClear = setError(movieDescription, 'This field is required')
     } else {

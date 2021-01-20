@@ -6,6 +6,7 @@ function userValidation() {
     let isClear = true
 
     // Check Name
+    adminUserForm.inputName.value = adminUserForm.inputName.value.trim()
     if (adminUserForm.inputName.value == '') {
         isClear = setError(inputName, 'This field is required')
     } else {
@@ -13,6 +14,7 @@ function userValidation() {
     }
 
     // Check Username
+    adminUserForm.inputUsername.value = adminUserForm.inputUsername.value.trim()
     if (adminUserForm.inputUsername.value == '') {
         isClear = setError(inputUsername, 'This field is required')
     } else {
@@ -45,13 +47,14 @@ function userValidation() {
     adminUserForm.inputEmail.value = adminUserForm.inputEmail.value.trim()
     if (adminUserForm.inputEmail.value == '') {
         isClear = setError(inputEmail, 'This field is required')
-    } else if (!adminUserForm.inputEmail.value.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {     // regex: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    } else if (!adminUserForm.inputEmail.value.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) { 
         isClear = setError(inputEmail, 'Please input a valid email address')
     } else {
         setSuccess(inputEmail)
     }
 
     // Check Contact
+    adminUserForm.inputContact.value = adminUserForm.inputContact.value.trim()
     if (adminUserForm.inputContact.value == '') {
         isClear = setError(inputContact, 'This field is required')
     } else {
@@ -66,6 +69,7 @@ function userValidation() {
     }
 
     // Check Address
+    adminUserForm.inputAddress.value = adminUserForm.inputAddress.value.trim()
     if (adminUserForm.inputAddress.value == '') {
         isClear = setError(inputAddress, 'This field is required')
     } else {
@@ -88,7 +92,6 @@ function setError(input, message) {
 function setSuccess(input) {
     const formField = input.parentElement
     formField.classList.remove('error')
-    //formField.className += ' success'
 }
 
 // Check if input key is a number

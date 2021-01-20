@@ -1,6 +1,6 @@
 const pool = require('../../config/database')
 
-// Display Account Page
+// Display Account Page on GET
 exports.getAccount = (req, res) => {
     pool.query('SELECT * FROM Admin_Profile WHERE ID = ?', [req.user.id], async (error, results) => {
         if (error) {

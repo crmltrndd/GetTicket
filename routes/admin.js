@@ -8,6 +8,8 @@ const homeController = require('../controller/admin/home_controller')
 const accountController = require('../controller/admin/account_controller')
 const usersController = require('../controller/admin/users_controller')
 const moviesController = require('../controller/admin/movies_controller')
+const cinemaController = require('../controller/admin/cinema_controller')
+const reservationsController = require('../controller/admin/reservations_controller')
 
 // Import Middlewares
 const { isAuthorized, isNotAuthorized, isAdmin, isResettingPassword } = require('../middleware/admin')
@@ -46,15 +48,10 @@ router.get('/account', isAuthorized, accountController.getAccount)
 
 
 //-------------------- CINEMAS --------------------//
-// Cinemas Route 
-router.get('/cinemas', isAuthorized, (req, res) => {
-    res.render('admin/cinemas', {
-        title: 'GetTicket Admin | Cinemas',
-        css: 'admin_home.css',
-        username: req.user.username,
-        role: req.user.role
-    })
-})
+router.get('/cinemas', isAuthorized, cinemaController.getCinema)                                // All Cinemas Route 
+router.get('/cinemas/active', isAuthorized, cinemaController.getCinemaActive)                   // Active Cinemas Route 
+router.get('/cinemas/inactive', isAuthorized, cinemaController.getCinemaInactive)               // Inactive Cinemas Route 
+
 
 //-------------------- MOVIES --------------------//
 router.get('/movies', isAuthorized, moviesController.getMovies)                                  // All Movies Route 
@@ -70,14 +67,8 @@ router.delete('/movies', isAuthorized, moviesController.deleteMovie)            
 
 //-------------------- RESERVATIONS --------------------//
 // Reservations Route 
-router.get('/reservations', isAuthorized, (req, res) => {
-    res.render('admin/reservations', {
-        title: 'GetTicket Admin | Reservations',
-        css: 'admin_home.css',
-        username: req.user.username,
-        role: req.user.role
-    })
-})
+router.get('/reservations', isAuthorized, reservationsController.getReservations)
+
 
 //-------------------- USERS --------------------//
 router.get('/users', isAuthorized, isAdmin, usersController.getUsers)                               // Users Route

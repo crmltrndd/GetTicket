@@ -1,4 +1,5 @@
 <%- include ('./partials/navbar.ejs') %>
+<% const months = ["January", "February", "March","April", "May", "June", "July", "Aug", "September", "October", "November", "December"] %>
 <div class="cart">
     <div class="jumbotron my-5 mx-5">
         <div class="container">
@@ -15,24 +16,26 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1">
-                        </td>
-                        <td>11-02-2020</td>
-                        <th scope="row">Black Widow</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td><input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1"></td>
-                        <td>11-02-2020</td>
-                        <th scope="row"></th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    <% if (transactions.length > 0) { %>
+                        <% transactions.forEach( transaction => { %>
+                            <tr>
+                                <td>
+                                    <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1">
+                                </td>
+                                <!-- Format Transaction Date -->
+                                <% let transactionDate = months[transaction.Transaction_Date.getMonth()] + " " + transaction.Transaction_Date.getDate() + ", " + transaction.Transaction_Date.getFullYear() %> 
+                                <td><%= transactionDate %></td>
+                                <th scope="row"><%= transaction.Title %></th>
+                                <td><%= transaction.Showtime %></td>
+                                <td><%= transaction.Num_Tickets %></td>
+                                <td><%= transaction.Status %></td>
+                            </tr>
+                        <% }) %>
+                    <% } else { %>
+                            <tr>
+                                <th colspan="6"><span class="d-flex justify-content-center">No record to show</span></th>
+                            </tr>
+                    <% } %>
                 </tbody>
             </table>
             </div>

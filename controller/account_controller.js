@@ -15,10 +15,17 @@ exports.getMyAccount = (req, res) => {
 
 // Display Transaction History Page on GET
 exports.getTransactions = (req, res) => {
-    res.render('account', {
-        title: 'GetTicket | My Account',
-        css: 'user_account.css',
-        active: 'transactions',
+    pool.query('SELECT * FROM Transaction_History WHERE Transaction_User = ?', [res.locals.user.Username], (error, results) => {
+        if (error) {
+            console.error(error)
+        } else {
+            res.render('account', {
+                title: 'GetTicket | My Account',
+                css: 'user_account.css',
+                active: 'transactions',
+                transactions: results
+            })
+        }
     })
 }
 

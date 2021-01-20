@@ -1,8 +1,5 @@
 <%- include ('../partials/navbar.ejs') %>
-<!-- Format Birthday -->
-<% const months = ["January", "February", "March","April", "May", "June", "July", "Aug", "September", "October", "November", "December"] %> 
-<% let birthdate = months[user.Birthday.getMonth()] + " " + user.Birthday.getDate() + " " + user.Birthday.getFullYear() %> 
-
+<% const months = ["January", "February", "March","April", "May", "June", "July", "Aug", "September", "October", "November", "December"] %>
 <div class="myaccount mt-5 mx-5">
     <div class="container py-3">
         <ul class="nav nav-tabs pt-3" id="myTab" role="tablist">
@@ -98,6 +95,8 @@
                                     <div class="row text-left mt-5">
                                         <div class="col">
                                             <p class="text-muted">Birthday</p>
+                                            <!-- Format Birthday -->
+                                            <% let birthdate = months[user.Birthday.getMonth()] + " " + user.Birthday.getDate() + ", " + user.Birthday.getFullYear() %> 
                                             <h6 class="font-weight-bold"><%=birthdate%></h6>
                                         </div>
                                         <div class="col">
@@ -128,20 +127,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">11-02-2020</th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">11-02-2020</th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+                            <% if (typeof transactions != 'undefined' && transactions.length > 0) { %>
+                                <% transactions.forEach( transaction => { %>
+                                    <tr>
+                                        <% let transactionDate = months[transaction.Transaction_Date.getMonth()] + " " + transaction.Transaction_Date.getDate() + ", " + transaction.Transaction_Date.getFullYear() %> 
+                                        <td scope="row"><%=  transactionDate %></td>
+                                        <td><%= transaction.Title %></td>
+                                        <td><%= transaction.Showtime %></td>
+                                        <td><%= transaction.Num_Tickets %></td>
+                                        <td><%= transaction.Status %></td>
+                                    </tr>
+                                <% }) %>
+                            <% } else { %>
+                                    <tr>
+                                        <th colspan="5"><span class="d-flex justify-content-center">No record to show</span></th>
+                                    </tr>
+                            <% } %>
                         </tbody>
                     </table>
                 </div>

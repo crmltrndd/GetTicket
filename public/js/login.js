@@ -1,17 +1,18 @@
+// Disable Login button while any field is empty
 $(function () {
     $('#loginForm input').keyup(function () {
 
-        var empty = false;
+        let empty = false
         $('#loginForm input').each(function () {
             if ($(this).val() == '') {
-                empty = true;
+                empty = true
             }
-        });
+        })
 
         if (empty) {
-            $('#signIn').attr('disabled', 'disabled');
+            $('#signIn').attr('disabled', 'disabled')
         } else {
-            $('#signIn').removeAttr('disabled');
+            $('#signIn').removeAttr('disabled')
         }
-    });
+    })
 })()
