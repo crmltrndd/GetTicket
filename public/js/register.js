@@ -3,7 +3,7 @@ function registerValidation() {
     const registerForm = document.getElementById('registerForm')
     let isClear = true
 
-    // Check username
+    // Check username 
     registerForm.username.value = registerForm.username.value.trim()
     if (registerForm.username.value == '') {
         isClear = setError(username, 'Username is required')
@@ -19,10 +19,9 @@ function registerValidation() {
 
     // Check email
     registerForm.email.value = registerForm.email.value.trim()
-    console.log(registerForm.email.value)
     if (registerForm.email.value == '') {
         isClear = setError(email, 'Email Address is required')
-    } else if (!registerForm.email.value.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {      
+    } else if (!registerForm.email.value.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {
         isClear = setError(email, 'Please input a valid email address')
     } else if (emailList.includes(registerForm.email.value)) {
         isClear = setError(email, 'The email is already in use')
@@ -53,7 +52,6 @@ function registerValidation() {
     }
 
     // Check firstname
-    registerForm.firstname.value = registerForm.firstname.value.trim()
     if (registerForm.firstname.value == '') {
         isClear = setError(firstname, 'First Name is required')
     } else {
@@ -61,7 +59,6 @@ function registerValidation() {
     }
 
     // Check lastname
-    registerForm.lastname.value = registerForm.lastname.value.trim()
     if (registerForm.lastname.value == '') {
         isClear = setError(lastname, 'Last Name is required')
     } else {
@@ -69,7 +66,6 @@ function registerValidation() {
     }
     
     // Check contact
-    registerForm.contact.value = registerForm.contact.value.trim()
     if (registerForm.contact.value == '') {
         isClear = setError(contact, 'Contact is required')
     } else if (!registerForm.contact.value.match(/^[+]?[\d]+([\-][\d]+)*\d$/)) { 
@@ -87,7 +83,6 @@ function registerValidation() {
     }
 
     // Check address
-    registerForm.address.value = registerForm.address.value.trim()
     if (registerForm.address.value == '') {
         isClear = setError(address, 'Address is required')
     } else {

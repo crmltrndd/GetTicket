@@ -51,7 +51,6 @@ function editProfileValidation() {
     }
 
     // Check firstname
-    profileForm.firstname.value = profileForm.firstname.value.trim()
     if (profileForm.firstname.value == '') {
         isClear = setError(firstname, 'First Name is required')
     } else {
@@ -59,7 +58,6 @@ function editProfileValidation() {
     }
 
     // Check lastname
-    profileForm.lastname.value = profileForm.lastname.value.trim()
     if (profileForm.lastname.value == '') {
         isClear = setError(lastname, 'Last Name is required')
     } else {
@@ -67,7 +65,6 @@ function editProfileValidation() {
     }
     
     // Check contact
-    profileForm.contact.value = profileForm.contact.value.trim()
     if (profileForm.contact.value == '') {
         isClear = setError(contact, 'Contact is required')
     } else if (!profileForm.contact.value.match(/^[+]?[\d]+([\-][\d]+)*\d$/)) { 
@@ -85,7 +82,6 @@ function editProfileValidation() {
     }
 
     // Check address
-    profileForm.address.value = profileForm.address.value.trim()
     if (profileForm.address.value == '') {
         isClear = setError(address, 'Address is required')
     } else {
