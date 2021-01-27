@@ -1,0 +1,19 @@
+Run node Inserts.js
+for the dummy inserts
+Note: 
+Change the link direction of images depending where
+the file was saved.
+
+Change also the email address with real email address
+for forget pass checking
+
+Admin Login
+User: admin
+Pass: password
+
+Admin: editor
+Pass: p@ssword
+
+User Login
+User: RoronoaZoro
+Pass: password
